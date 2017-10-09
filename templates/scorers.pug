@@ -2,35 +2,48 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(name='description' content='Strzelcy goli dla polski w eliminacjach ms 2018')
+    meta(name='keywords' content='Polska, ranking strzelcow, eliminacje ms, ms 2018')
     title Strzelcy
+    link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   body
-    h2 Lista strzelców w repezentacji Polski eliminacje ms 2018
-    ol
-      li Robert Lewandowski - 16
-        ul
-          li Kamil Grosicki
-          li Kuba Blaszczykowski
-          li Piort Zielinski
-      li Kamil Grosicki - 3
-        ul
-          li Lukasz Piszczek
-          li Robert Lewandowski
-      li Kuba Blaszczykowski - 1
-      li Rafal Wolski - 1
-      li Krzysztof Maczynski - 1
-       ul
-         li Piotr Zielinski
-      li Arek Milik - 1
-       ul
-         li Makuszewski
-      li Kamil Glik - 1
-       ul
-         li Piotr Zielinski
-      li Lukasz Piszczek - 1
-       ul
-         li Piort Zielinski
-      li Bartek Kapustka - 1
-        ul
-          li Kuba Blaszczykowski
-    img(src="../../resource/LewyBlaszczuPiczu.jpg", alt='Trójka z Dortmundu')
-    img(src="../../resource/hajtoMeme.jpg", alt='Miszczu Hajto', width='300', height='200')
+    .container
+      h2 Lista strzelców w repezentacji Polski eliminacje ms 2018
+    include ./menus/menu.pug
+    .container
+      .row
+        .col-xl-8
+          ol
+            li Robert Lewandowski - 16
+              ul
+                li Kamil Grosicki
+                li Kuba Blaszczykowski
+                li Piort Zielinski
+            li Kamil Grosicki - 3
+              ul
+                li Lukasz Piszczek
+                li Robert Lewandowski
+            li Kuba Blaszczykowski - 1
+            li Rafal Wolski - 1
+            li Krzysztof Maczynski - 1
+              ul
+                li Piotr Zielinski
+            li Arek Milik - 1
+              ul
+                li Makuszewski
+            li Kamil Glik - 1
+              ul
+                li Piotr Zielinski
+            li Lukasz Piszczek - 1
+              ul
+                li Piort Zielinski
+            li Bartek Kapustka - 1
+              ul
+                li Kuba Blaszczykowski
+          a.btn.btn-primary(href='../../resource/hajtoNiespodzianka.jpg' download='Mala niespodzianka') Pobierz niespodzianke
+        .col-xl-4
+          a(href='https://www.youtube.com/watch?v=qYCge4RZFa0')
+            img.img-rounded(id='tomek', src="../../resource/hajtoMeme.jpg", alt='Miszczu Hajto', width='300', height='200')
+    .col-xl-12
+      img.img-circle(src="../../resource/LewyBlaszczuPiczu.jpg", alt='Trójka z Dortmundu')
+    a.btn.btn-outline-success(href='#tomek') Odszukaj Tomka
