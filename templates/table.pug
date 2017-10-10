@@ -5,9 +5,17 @@ html
     meta(name='description' content='Tabela grupy Polski')
     meta(name='keywords' content='Polska, tabela, grupa, eliminacje, mistrzostwa świata, 2018')
     title Tabela grupy
+    style.
+      .first-table {
+        border: 2px solid gray
+      }
+
+      table, td, th {
+        border: 1px solid gray
+      }
   body
     include ./menus/menu.pug
-    table(border='2')
+    table.first-table
       caption
         strong Tabela grupy eliminacyjnej E
       thead
@@ -15,13 +23,12 @@ html
           th Region
           th Drużyna
           th Punkty
-
       tbody
         tr
           td Europa Centralna
           td Polska
           td
-            table(border='1')
+            table
               thead
                 tr
                   th Na wyjeździe
