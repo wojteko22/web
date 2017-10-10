@@ -7,10 +7,9 @@ html
     title Strzelcy
     link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   body
-    .container
-      h2 Lista strzelców w repezentacji Polski W eliminacjach MŚ 2018
     include ./menus/menu.pug
     .container
+      h2 Lista strzelców w repezentacji Polski W eliminacjach MŚ 2018
       .row
         .col-xl-8
           ol
@@ -42,12 +41,12 @@ html
               ul
                 li Kuba Blaszczykowski
           p
-            a.btn.btn-primary(href='../../resource/hajtoNiespodzianka.jpg' download='Mala niespodzianka') Pobierz niespodzianke
+            a.btn.btn-primary(href='../../resource/hajtoNiespodzianka.jpg' download='Mała niespodzianka') Pobierz niespodziankę
           p
-            a.btn.btn-primary(href='ftp://ftp.pwr.wroc.pl/pub/doc/Sieciowy_Savoir-vivre.txt' download='Mala niespodzianka2') Pobierz inną niespodziankę
+            a.btn.btn-primary(href='ftp://ftp.pwr.wroc.pl/pub/doc/Sieciowy_Savoir-vivre.txt' download='Inna niespodzianka') Pobierz inną niespodziankę
         .col-xl-4
           a(href='https://www.youtube.com/watch?v=qYCge4RZFa0')
-            img.img-rounded(id='tomek', src="../../resource/hajtoMeme.jpg", alt='Miszczu Hajto', width='300', height='200')
+            img(id='tomek', src="../../resource/hajtoMeme.jpg", alt='Miszczu Hajto', width='300', height='200')
     .col-xl-12
       img.img-circle(src="../../resource/LewyBlaszczuPiczu.jpg", alt='Trójka z Dortmundu')
     a.btn.btn-outline-success(href='#tomek') Odszukaj Tomka
