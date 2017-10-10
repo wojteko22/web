@@ -1,0 +1,78 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='description' content='Strzelcy goli dla polski w eliminacjach ms 2018')
+    meta(name='keywords' content='Polska, ranking strzelcow, eliminacje ms, ms 2018')
+    title Strzelcy
+    link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
+  body
+    .container
+      h2 Lista strzelców w repezentacji Polski eliminacje ms 2018
+    include ./menus/menu.pug
+    .container
+      section.container
+        .text-center
+          h2 CONTACT ME
+        .col-md-offset-1.col-md-4(style='margin-top: 100px')
+          p
+            | My contact data:
+          p
+            span
+              i.fa.fa-map-marker
+            |   Lubola, Poland
+          p
+            span
+              i.fa.fa-phone
+            |  +48 534 605 004
+          p
+            span
+              i.fa.fa-envelope
+            |   dawidrusiecki6@gmail.com
+        form.col-md-6(action='mailto:dawidrusiecki6@gmail.com', method='post', role='form')
+          .form-group
+            label Name
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-user
+                input.form-control(type='text', placeholder='Name', required='')
+          .form-group
+            label Phone
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-phone
+                input.form-control(type='tel', placeholder='Phone Number', required='')
+          .form-group
+            label Email
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-envelope-o.fa-fw
+                input.form-control(type='email', placeholder='Email', required='')
+          .form-group
+            label Ulubiony kolor
+              .custom-checkbox
+                input(type='checkbox', name='color', value='black')
+                |Czarny
+                input(type='checkbox', name='color', value='white')
+                |Bialy
+          .form-group
+            label Ocena kadry
+              .custom-select
+                select(name='rate')
+                  option(value='1') 1
+                  option(value='2') 2
+                  option(value='3') 3
+                  option(value='4') 4
+                  option(value='5') 5
+          .form-group
+            label Plec
+              input(type='radio', name='gender', value='male')
+              |Menszczyzna
+              input(type='radio', name='gender', value='female')
+              |Kobieta
+          .form-group
+            label Message
+              textarea.form-control(name='message', rows='5', cols='40', placeholder='Message', required='', maxlength='200')
+          button.btn.btn-default.pull-right(type='submit', name='button', style='margin-bottom:10px;')
+            i.fa.fa-send
+            |   SEND
+          input(type='reset', value='reset')
