@@ -4,29 +4,19 @@ html
     meta(charset='utf-8')
     meta(name='description' content='Formularz kontaktowy')
     meta(name='keywords' content='formularz, kontakt')
-    title Strzelcy
+    title Formularz
     link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   body
     include ./menus/menu.pug
     .container
-      section.container
+      section
         .text-center
           h2 CONTACT ME
         .col-md-offset-1.col-md-4(style='margin-top: 100px')
-          p
-            | My contact data:
-          p
-            span
-              i.fa.fa-map-marker
-            |   Lubola, Poland
-          p
-            span
-              i.fa.fa-phone
-            |  +48 534 605 004
-          p
-            span
-              i.fa.fa-envelope
-            |   dawidrusiecki6@gmail.com
+          p My contact data:
+          p Lubola, Poland
+          p +48 534 605 004
+          p dawidrusiecki6@gmail.com
         form.col-md-6(action='mailto:dawidrusiecki6@gmail.com', method='post')
           .form-group
             label Name
