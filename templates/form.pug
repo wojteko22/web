@@ -1,13 +1,12 @@
+doctype html
 html
   head
     meta(charset='utf-8')
-    meta(name='description' content='Strzelcy goli dla polski w eliminacjach ms 2018')
-    meta(name='keywords' content='Polska, ranking strzelcow, eliminacje ms, ms 2018')
+    meta(name='description' content='Formularz kontaktowy')
+    meta(name='keywords' content='formularz, kontakt')
     title Strzelcy
     link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   body
-    .container
-      h2 Lista strzelców w repezentacji Polski eliminacje ms 2018
     include ./menus/menu.pug
     .container
       section.container
@@ -28,7 +27,7 @@ html
             span
               i.fa.fa-envelope
             |   dawidrusiecki6@gmail.com
-        form.col-md-6(action='mailto:dawidrusiecki6@gmail.com', method='post', role='form')
+        form.col-md-6(action='mailto:dawidrusiecki6@gmail.com', method='post')
           .form-group
             label Name
               .input-group
