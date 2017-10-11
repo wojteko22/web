@@ -5,51 +5,40 @@ html
     meta(name='description' content='Formularz kontaktowy')
     meta(name='keywords' content='formularz, kontakt')
     title Formularz
-    link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   body
     include ./menus/menu.pug
-    .container
-      section
-        .text-center
-          h2 CONTACT ME
-        .col-md-offset-1.col-md-4(style='margin-top: 100px')
-          p My contact data:
-          p Lubola, Poland
-          p +48 534 605 004
-          p dawidrusiecki6@gmail.com
-        form.col-md-6(action='mailto:dawidrusiecki6@gmail.com', method='post')
-          .form-group
-            label Name
-              input.form-control(type='text', name='name', placeholder='Name', required)
-          .form-group
-            label Phone
-              input.form-control(type='tel', name='phone', placeholder='Phone Number', required)
-          .form-group
-            label Email
-              input.form-control(type='email', name='email', placeholder='Email', required)
-          .form-group Ulubiony kolor
-            br
-            label Czarny
-              input(type='checkbox', name='color', value='black')
-            label Biały
-              input(type='checkbox', name='color', value='white')
-          .form-group
-            label Ocena kadry
-              select(name='rate')
-                option(value='1') 1
-                option(value='2') 2
-                option(value='3') 3
-                option(value='4') 4
-                option(value='5') 5
-          .form-group Płeć
-            br
-            label Mężczyzna
-              input(type='radio', name='gender', value='male')
-            label Kobieta
-              input(type='radio', name='gender', value='female')
-          .form-group
-            label Komentarz
-              br
-              textarea(name='message', rows='5', cols='40', placeholder='Komentarz', required, maxlength='200')
-          input.btn(type='submit', style='margin-bottom:10px;')
-          input(type='reset', value='Wyczyść')
+    section
+      h2 Formularz kontaktowy
+      form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
+        p
+          label Imie
+            input(type='text', name='name', placeholder='Imie', autofocus)
+        p
+          label Nazwisko
+            input(type='text', name='surname', placeholder='Nazwisko', required)
+        p
+          label Miesiac urodzin
+            input(type='text', name='birthMonth', placeholder='Miesiac urodzin', list='months')
+            datalist#months
+              option(value='Styczen')
+              option(value='Luty')
+              option(value='Marzec')
+              option(value='Kwiecien')
+              option(value='Maj')
+              option(value='Czerwiec')
+              option(value='Lipiec')
+              option(value='Sierpien')
+              option(value='Wrzesien')
+              option(value='Pazdziernik')
+              option(value='Listopad')
+              option(value='Grudzien')
+        p
+          label Email
+            input(type='email', name='email', placeholder='Email', required)
+            |some@domain.com
+        p
+          label Tel
+            input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
+            | (###) ###-####
+        input(type='submit', value='Wyslij')
+        input(type='reset', value='Wyczyść')
