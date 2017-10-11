@@ -11,13 +11,19 @@ html
       h2 Formularz kontaktowy
       form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
         p
-          label Imie
+          label
+            |Imie
+            |
             input(type='text', name='name', placeholder='Imie', autofocus)
         p
-          label Nazwisko
+          label
+            |Nazwisko
+            |
             input(type='text', name='surname', placeholder='Nazwisko', required)
         p
-          label Miesiac urodzin
+          label
+            |Miesiac urodzin
+            |
             input(type='text', name='birthMonth', placeholder='Miesiac urodzin', list='months')
             datalist#months
               option(value='Styczen')
@@ -33,11 +39,15 @@ html
               option(value='Listopad')
               option(value='Grudzien')
         p
-          label Email
+          label
+            |Email
+            |
             input(type='email', name='email', placeholder='Email', required)
             |some@domain.com
         p
-          label Tel
+          label
+            |Tel
+            |
             input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
             | (###) ###-####
         input(type='submit', value='Wyslij')
