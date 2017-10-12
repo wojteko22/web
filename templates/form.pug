@@ -12,43 +12,45 @@ html
       form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
         p
           label
-            |Imie
+            | Imię:
             |
-            input(type='text', name='name', placeholder='Imie', autofocus)
+            input(type='text', name='name', placeholder='Imię', autofocus)
         p
           label
-            |Nazwisko
+            | Nazwisko:
             |
             input(type='text', name='surname', placeholder='Nazwisko', required)
         p
           label
-            |Miesiac urodzin
+            | Miesiąc urodzin:
             |
-            input(type='text', name='birthMonth', placeholder='Miesiac urodzin', list='months')
+            input(type='text', name='birthMonth', placeholder='Miesiąc urodzin', list='months')
             datalist#months
-              option(value='Styczen')
+              option(value='Styczeń')
               option(value='Luty')
               option(value='Marzec')
-              option(value='Kwiecien')
+              option(value='Kwiecień')
               option(value='Maj')
               option(value='Czerwiec')
               option(value='Lipiec')
-              option(value='Sierpien')
-              option(value='Wrzesien')
-              option(value='Pazdziernik')
+              option(value='Sierpień')
+              option(value='Wrzesień')
+              option(value='Październik')
               option(value='Listopad')
-              option(value='Grudzien')
+              option(value='Grudzień')
         p
           label
-            |Email
+            | Email:
             |
             input(type='email', name='email', placeholder='Email', required)
-            |some@domain.com
+            |
+            | some@domain.com
         p
           label
-            |Tel
+            | Telefon:
             |
             input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
+            |
             | (###) ###-####
-        input(type='submit', value='Wyslij')
+        input(type='submit', value='Wyślij')
         input(type='reset', value='Wyczyść')
