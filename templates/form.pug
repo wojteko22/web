@@ -1,56 +1,54 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='description' content='Formularz kontaktowy')
-    meta(name='keywords' content='formularz, kontakt')
-    title Formularz
-  body
-    include common/menu.pug
-    section
-      h2 Formularz kontaktowy
-      form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
-        p
-          label
-            | Imię:
-            |
-            input(type='text', name='name', placeholder='Imię', autofocus)
-        p
-          label
-            | Nazwisko:
-            |
-            input(type='text', name='surname', placeholder='Nazwisko', required)
-        p
-          label
-            | Miesiąc urodzin:
-            |
-            input(type='text', name='birthMonth', placeholder='Miesiąc urodzin', list='months')
-            datalist#months
-              option(value='Styczeń')
-              option(value='Luty')
-              option(value='Marzec')
-              option(value='Kwiecień')
-              option(value='Maj')
-              option(value='Czerwiec')
-              option(value='Lipiec')
-              option(value='Sierpień')
-              option(value='Wrzesień')
-              option(value='Październik')
-              option(value='Listopad')
-              option(value='Grudzień')
-        p
-          label
-            | Email:
-            |
-            input(type='email', name='email', placeholder='Email', required)
-            |
-            | some@domain.com
-        p
-          label
-            | Telefon:
-            |
-            input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
-            |
-            | (###) ###-####
-        input(type='submit', value='Wyślij')
-        input(type='reset', value='Wyczyść')
+extends common/template.pug
+
+block head
+  meta(name='description' content='Formularz kontaktowy')
+  meta(name='keywords' content='formularz, kontakt')
+  title Formularz
+block body
+  section
+    h2 Formularz kontaktowy
+    form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
+      p
+        label
+          | Imię:
+          |
+          input(type='text', name='name', placeholder='Imię', autofocus)
+      p
+        label
+          | Nazwisko:
+          |
+          input(type='text', name='surname', placeholder='Nazwisko', required)
+      p
+        label
+          | Miesiąc urodzin:
+          |
+          input(type='text', name='birthMonth', placeholder='Miesiąc urodzin', list='months')
+          datalist#months
+            option(value='Styczeń')
+            option(value='Luty')
+            option(value='Marzec')
+            option(value='Kwiecień')
+            option(value='Maj')
+            option(value='Czerwiec')
+            option(value='Lipiec')
+            option(value='Sierpień')
+            option(value='Wrzesień')
+            option(value='Październik')
+            option(value='Listopad')
+            option(value='Grudzień')
+      p
+        label
+          | Email:
+          |
+          input(type='email', name='email', placeholder='Email', required)
+          |
+          | some@domain.com
+      p
+        label
+          | Telefon:
+          |
+          input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
+          |
+          | (###) ###-####
+      input(type='submit', value='Wyślij')
+      input(type='reset', value='Wyczyść')

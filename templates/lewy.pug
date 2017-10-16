@@ -1,45 +1,43 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='description' content='Informacje o Robercie Lewandowskim')
-    meta(name='keywords' content='Polska, Robert, Lewandowski, piłka nożna, Lewy')
-    title Piłka nożna
-  body
-    include common/menu.pug
-    section
-      h1 Robert Lewandowski w eliminacjach Mistrzost Świata 2018
-      p
-        | Lewandowski został
-        |
-        mark królem strzelców
-        |
-        | eliminacji. Strzelił 16 bramek, czyli aż 57% wszystkich zdobytych przez Polskę:
-      | 0
-      |
-      meter(min='0', max='28', value='16')
-      |
-      | 28
-      p
-        | Lewandowski
-        |
-        mark pobił rekord
-        |
-        | liczby goli w eliminacjach Mistrzost Świata strefy Euro.
-      aside
-        p Drugi na liście strzelców eliminacji był Cristiano Ronaldo.
+extends common/template.pug
 
-      details
-        summary Bramki Lewandowskiego w poszególnych meczach:
-        ol
-          li Kazachstan vs Polska: 1
-          li Polska vs Dania: 3
-          li Polska vs Armenia: 1
-          li Rumunia vs Polska: 2
-          li Czarnogóra vs Polska: 1
-          li Polska vs Rumunia: 3
-          li Dania vs Polska: 0
-          li Polska vs Kazachstan: 1
-          li Armenia vs Polska: 3
-          li Polska vs Czarnogóra: 1
-    include common/footer.pug
+block head
+  meta(name='description' content='Informacje o Robercie Lewandowskim')
+  meta(name='keywords' content='Polska, Robert, Lewandowski, piłka nożna, Lewy')
+  title Piłka nożna
+block  body
+  section
+    h1 Robert Lewandowski w eliminacjach Mistrzost Świata 2018
+    p
+      | Lewandowski został
+      |
+      mark królem strzelców
+      |
+      | eliminacji. Strzelił 16 bramek, czyli aż 57% wszystkich zdobytych przez Polskę:
+    | 0
+    |
+    meter(min='0', max='28', value='16')
+    |
+    | 28
+    p
+      | Lewandowski
+      |
+      mark pobił rekord
+      |
+      | liczby goli w eliminacjach Mistrzost Świata strefy Euro.
+    aside
+      p Drugi na liście strzelców eliminacji był Cristiano Ronaldo.
+
+    details
+      summary Bramki Lewandowskiego w poszególnych meczach:
+      ol
+        li Kazachstan vs Polska: 1
+        li Polska vs Dania: 3
+        li Polska vs Armenia: 1
+        li Rumunia vs Polska: 2
+        li Czarnogóra vs Polska: 1
+        li Polska vs Rumunia: 3
+        li Dania vs Polska: 0
+        li Polska vs Kazachstan: 1
+        li Armenia vs Polska: 3
+        li Polska vs Czarnogóra: 1
+  include common/footer.pug

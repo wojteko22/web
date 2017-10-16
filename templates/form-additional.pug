@@ -1,40 +1,38 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='description' content='Formularz kontaktowy zawierający dodatkowe dane')
-    meta(name='keywords' content='formularz, kontakt')
-    title Formularz dodatkowy
-  body
-    include common/menu.pug
-    section
-      h1 Formularz z dodatkowymi danymi
-      form(action='mailto:wojteko22.96@gmail.com', method='post')
-        p
-          label
-            | Preferowany kolor koszulki:
-            |
-            input(type='color', name='color')
-        p
-          label
-            | Miesiąc urodzenia:
-            |
-            input(type='month', name='month')
-        p
-          label
-            | Umiejętność dryblingu: 0
-            input(type='range', name='dribble' min = '0' max = '10' value = '5')
-            | 10
-        p
-          label
-            | Czego tu szukasz?
-            |
-            input(type='search', name='query', placeholder='Szukana rzecz')
-        p
-          label
-            | Strona internetowa:
-            |
-            input(type='url', name='url', placeholder='Adres Twojej strony')
-        p
-          input(type='submit', value='Wyślij')
-          input(type='reset', value='Wyczyść')
+extends common/template.pug
+
+block head
+  meta(name='description' content='Formularz kontaktowy zawierający dodatkowe dane')
+  meta(name='keywords' content='formularz, kontakt')
+  title Formularz dodatkowy
+block body
+  section
+    h1 Formularz z dodatkowymi danymi
+    form(action='mailto:wojteko22.96@gmail.com', method='post')
+      p
+        label
+          | Preferowany kolor koszulki:
+          |
+          input(type='color', name='color')
+      p
+        label
+          | Miesiąc urodzenia:
+          |
+          input(type='month', name='month')
+      p
+        label
+          | Umiejętność dryblingu: 0
+          input(type='range', name='dribble' min = '0' max = '10' value = '5')
+          | 10
+      p
+        label
+          | Czego tu szukasz?
+          |
+          input(type='search', name='query', placeholder='Szukana rzecz')
+      p
+        label
+          | Strona internetowa:
+          |
+          input(type='url', name='url', placeholder='Adres Twojej strony')
+      p
+        input(type='submit', value='Wyślij')
+        input(type='reset', value='Wyczyść')
