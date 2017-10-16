@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var pug = require('gulp-pug');
+var sass = require('gulp-sass');
 
 gulp.task('pug', function(){
     return gulp.src('templates/*.pug')
@@ -7,8 +8,15 @@ gulp.task('pug', function(){
         .pipe(gulp.dest('build/html'))
 });
 
-gulp.task('watch', function() {
-    gulp.watch('templates/**/*.pug', ['pug']);
+gulp.task('sass', function(){
+    return gulp.src('main.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('build'))
 });
 
-gulp.task('default', [ 'watch', 'pug' ]);
+gulp.task('watch', function() {
+    gulp.watch('templates/**/*.pug', ['pug']);
+    gulp.watch('main.sass', ['sass']);
+});
+
+gulp.task('default', [ 'watch', 'pug', 'sass' ]);
