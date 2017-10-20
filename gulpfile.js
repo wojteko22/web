@@ -9,14 +9,14 @@ gulp.task('pug', function(){
 });
 
 gulp.task('sass', function(){
-    return gulp.src('main.sass')
+    return gulp.src('*.sass')
         .pipe(sass())
         .pipe(gulp.dest('build'))
 });
 
 gulp.task('watch', function() {
     gulp.watch('templates/**/*.pug', ['pug']);
-    gulp.watch('main.sass', ['sass']);
+    gulp.watch('*.sass', ['sass']);
 });
 
 gulp.task('default', [ 'watch', 'pug', 'sass' ]);
