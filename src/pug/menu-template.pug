@@ -4,18 +4,60 @@ block head
   meta(name='description' content='Szablon menu')
   meta(name='keywords' content='menu, szablon')
   title Szablon menu
+  link(rel='stylesheet', href='../css/menu-template.css')
 block body
   section
     h1 Szablon menu
-    nav Menu
+    nav.dropdown-menu Menu
       ul
-        li
-          nav Pierwsze podmenu
-            ul
-              li a
-              li b
-              li c
-        li
-          a(href='#') Druga opcja
-        li
-          a(href='#') Trzecia opcja
+        li.dropdown-submenu
+          a(href='#') Pierwsze podmenu
+          ul.dropdown-menu
+            li.dropdown-submenu
+              a(href='#') Pierwsze podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja
+            li.dropdown-submenu
+              a(href='#') Drugie podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja
+        li.dropdown-submenu
+          a(href='#') Drugie podmenu
+          ul.dropdown-menu
+            li.dropdown-submenu
+              a(href='#') Pierwsze podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja
+            li.dropdown-submenu
+              a(href='#') Drugie podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja
+        li.dropdown-submenu
+          a(href='#') Trzecie podmenu
+          ul.dropdown-menu
+            li.dropdown-submenu
+              a(href='#') Pierwsze podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja
+            li.dropdown-submenu
+              a(href='#') Drugie podmenu podmenu
+              ul.dropdown-menu
+                li
+                  a(href='#') Pierwsza opcja
+                li
+                  a(href='#') Druga opcja

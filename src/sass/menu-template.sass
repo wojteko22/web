@@ -1,0 +1,20 @@
+.dropdown-menu
+  line-height: 200%
+  width: 15em
+  ul
+    li
+      background-color: grey
+      border: initial
+
+.dropdown-submenu
+  position: relative
+
+  > .dropdown-menu
+    float: left
+    position: absolute
+    left: 100%
+    top: 0
+    color: black
+
+  &:hover > .dropdown-menu
+    display: block
