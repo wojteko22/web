@@ -1,8 +1,10 @@
 nav
   text-align: center
   width: 15em
-  background-color: royalblue
-  color: white
+
+  .nav-main &
+    background-color: royalblue
+    color: white
 
   ul
     display: none
@@ -11,20 +13,25 @@ nav
     margin: 0
 
     li
-      border: 2px solid royalblue
-      border-top: initial
-      //border-right: 2px solid royalblue
-      //border-bottom: 2px solid royalblue
-      //border-left: 2px solid royalblue
-      background-color: white
+      .nav-main &
+        border: 2px solid royalblue
+        border-top: initial
+        background-color: white
 
       &:hover
         background-color: powderblue
 
+      &:active
+        background-color: #8cb3b8
+
       a
         text-decoration: none
-        color: black
         display: block
+        color: black
+
+        &:visited
+          .nav-main &
+            color: grey
 
   &:hover > ul
     display: block
