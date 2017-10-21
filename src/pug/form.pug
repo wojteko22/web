@@ -21,6 +21,11 @@ block body
           input(type='text', name='surname', placeholder='Nazwisko', required)
       p
         label
+          | Nazwisko panienskie matki:
+          |
+          input(type='text', name='mothenFirstSurname', disabled='disabled')
+      p
+        label
           | Miesiąc urodzin:
           |
           input(type='text', name='birthMonth', placeholder='Miesiąc urodzin', list='months')
@@ -51,5 +56,13 @@ block body
           input(type='tel', name='phone', placeholder='Numer telefonu', pattern='\\(\\d{3}\\) +\\d{3}-\\d{4}')
           |
           | (###) ###-####
+      P
+        label
+          | Pleć
+          |
+          input(type='radio', value='male', name='gender')
+          |Men
+          input(type='radio', value='female', name='gender')
+          |Woman
       input(type='submit', value='Wyślij')
       input(type='reset', value='Wyczyść')
