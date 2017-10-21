@@ -3,9 +3,11 @@ extends common/template
 block head
   meta(name='description' content='Informacje o Robercie Lewandowskim')
   meta(name='keywords' content='Polska, Robert, Lewandowski, piłka nożna, Lewy')
+  link(rel='stylesheet', href='../css/lewy.css')
   title Piłka nożna
 block  body
   section
+    img.longImage(src='../resources/robertLewandowski.jpg', alt='Robert Lewandowski')
     h1 Robert Lewandowski w eliminacjach Mistrzost Świata 2018
     p
       | Lewandowski został
@@ -26,6 +28,8 @@ block  body
       | liczby goli w eliminacjach Mistrzost Świata strefy Euro.
     aside
       p Drugi na liście strzelców eliminacji był Cristiano Ronaldo.
+        span.super
+          a.ronaldo(href='https://i.pinimg.com/236x/6e/80/3f/6e803f6ae0c2710a4934347302e98e86--polish-memes-soccer-sports.jpg', target='blank') He's there
 
     details
       summary Bramki Lewandowskiego w poszególnych meczach:
