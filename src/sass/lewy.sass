@@ -1,7 +1,7 @@
 .longImage
-  height: 70%
-  position: absolute
-  left: 70%
+  height: 220px
+  float: right
+  margin: 20px
 
 .super
   position: relative
@@ -46,3 +46,36 @@ li:nth-last-child(3)
 mark:only-child
   font-variant: small-caps
 
+.coverAndDance
+  position: relative
+  margin: 15px auto 15px 100px
+  img
+    width: 400px
+    height: 250px
+    position: absolute
+    left: 0
+    transition: opacity 4s ease-in-out
+  img.top:hover
+    opacity: 0
+
+.coverAndDance:hover
+  animation: dance 4s infinite linear
+
+@keyframes dance
+  from
+    transform: skewX(0)
+  25%
+    transform: skewX(20deg)
+  50%
+    transform: skewX(0)
+  75%
+    transform: skewX(-20deg)
+  to
+    transform: skewX(0)
+
+.moveAndRotate
+  img
+    transition: transform 4s
+
+  img:hover
+    transform: rotate(360deg) scale(2,2) translate(-50px, 50px)

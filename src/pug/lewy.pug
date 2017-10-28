@@ -7,7 +7,8 @@ block head
   title Piłka nożna
 block  body
   section
-    img.longImage(src='../resources/robertLewandowski.jpg', alt='Robert Lewandowski')
+    .moveAndRotate
+      img.longImage(src='../resources/robertLewandowski.jpg', alt='Robert Lewandowski')
     h1 Robert Lewandowski w eliminacjach Mistrzost Świata 2018
     p
       | Lewandowski został
@@ -45,4 +46,8 @@ block  body
         li Armenia vs Polska: 3
         li
         li Polska vs Czarnogóra: 1
+    .coverAndDance
+      img(src='../resources/matiITomek.jpg', alt='Duet komentatorski')
+      img.top(src='../resources/lewy2.jpg', alt='Robert Lewandowski')
+
   include common/footer
