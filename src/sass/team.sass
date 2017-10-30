@@ -1,26 +1,43 @@
-.border
-  margin: 1em
-  border: 20px solid
-  width: 10em
-  padding: 0.5em
-  text-align: center
-  border-image-source: url('../resources/border.png')
+.flexbox
+  margin-top: 1em
+  background-color: #fee
+  height: 20em
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  justify-content: space-around
 
-  &.border2
-    border-image-slice: 34%
+  .border
+    flex: 1
+    margin: 0.5em
+    border: 20px solid
+    max-width: 9em
+    padding: 0.5em
+    text-align: center
+    border-image-source: url('../resources/border.png')
+    transition-property: flex
+    transition-duration: 2s
+    transition-timing-function: linear
 
-  &.border3
-    border-image-slice: 34%
-    border-image-repeat: repeat
+    &:hover
+      font-size: 2em
+      flex: 2
 
-  &.border4
-    border-image-slice: 34%
-    border-image-repeat: round
+    &.border2
+      border-image-slice: 34%
 
-  &.border5
-    border-image-slice: 34%
-    border-image-repeat: space
+    &.border3
+      border-image-slice: 34%
+      border-image-repeat: repeat
 
-  &.border6
-    border-image-slice: 29% 30% 20% 34%
+    &.border4
+      border-image-slice: 34%
+      border-image-repeat: round
+
+    &.border5
+      border-image-slice: 34%
+      border-image-repeat: space
+
+    &.border6
+      border-image-slice: 29% 30% 20% 34%
 
