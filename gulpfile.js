@@ -1,11 +1,13 @@
 var gulp = require('gulp');
 var pug = require('gulp-pug');
 var sass = require('gulp-sass');
+var htmlbeautify = require('gulp-html-beautify');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('pug', function(){
     return gulp.src('src/pug/*.pug')
         .pipe(pug())
+        .pipe(htmlbeautify())
         .pipe(gulp.dest('dist/html/'))
 });
 
