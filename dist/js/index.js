@@ -1,0 +1,1 @@
+document.writeln("<h1>Oto strona o reprezentacji Polski!</h1>");
