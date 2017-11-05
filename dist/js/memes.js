@@ -29,7 +29,8 @@
             var isCorrect = checkAnswer(answers[i], answer);
             points += isCorrect? 1 : 0;
             if (i === 1 && !isCorrect){
-                pazdanFight(questions[i], answers[i])
+                var doYouKnownPirania = pazdanFight(questions[i], answers[i]);
+                points += doYouKnownPirania? 1 : 0;
             }
         }
         checkResult(points);
@@ -60,7 +61,8 @@
             yellowCardsForPazdan++;
         } while (!isCorrect && yellowCardsForPazdan < 2);
         var cardFurPazdana = yellowCardsForPazdan < 2 ? "żółtą" : "czerwoną";
-        window.alert("Przepraszamy to Pazdan jest taki nieustępliwy. Za to zagranie otrzymał " + cardFurPazdana + " kartkę ;)")
+        window.alert("Przepraszamy to Pazdan jest taki nieustępliwy. Za to zagranie otrzymał " + cardFurPazdana + " kartkę ;)");
+        return isCorrect;
     }
 
     function checkResult(userPoints) {
