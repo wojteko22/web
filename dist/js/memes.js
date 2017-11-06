@@ -61,7 +61,7 @@
             yellowCardsForPazdan++;
         } while (!isCorrect && yellowCardsForPazdan < 2);
         var cardFurPazdana = yellowCardsForPazdan < 2 ? "żółtą" : "czerwoną";
-        window.alert("Przepraszamy to Pazdan jest taki nieustępliwy. Za to zagranie otrzymał " + cardFurPazdana + " kartkę ;)");
+        window.alert("Przepraszamy, to Pazdan jest taki nieustępliwy. Za to zagranie otrzymał " + cardFurPazdana + " kartkę ;)");
         return isCorrect;
     }
 
