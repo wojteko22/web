@@ -8,6 +8,8 @@
         memeButton.addEventListener("click", setMeme);
         var quizButton = document.getElementById("quizButton");
         quizButton.addEventListener("click", startQuiz);
+        var bmiButton = document.getElementById("bmiButton");
+        bmiButton.addEventListener("click", countBmi);
     }
 
     function setMeme() {
@@ -27,10 +29,10 @@
         for (var i = 0; i < questions.length; i++) {
             var answer = showQuestion(questions[i]);
             var isCorrect = checkAnswer(answers[i], answer);
-            points += isCorrect? 1 : 0;
-            if (i === 1 && !isCorrect){
+            points += isCorrect ? 1 : 0;
+            if (i === 1 && !isCorrect) {
                 var doYouKnownPirania = pazdanFight(questions[i], answers[i]);
-                points += doYouKnownPirania? 1 : 0;
+                points += doYouKnownPirania ? 1 : 0;
             }
         }
         checkResult(points);
@@ -55,9 +57,10 @@
 
     function pazdanFight(pazdanQuestion, pazdanAnswer) {
         var yellowCardsForPazdan = 0;
+        var isCorrect;
         do {
             var answer = showQuestion(pazdanQuestion);
-            var isCorrect = checkAnswer(pazdanAnswer, answer);
+            isCorrect = checkAnswer(pazdanAnswer, answer);
             yellowCardsForPazdan++;
         } while (!isCorrect && yellowCardsForPazdan < 2);
         var cardFurPazdana = yellowCardsForPazdan < 2 ? "żółtą" : "czerwoną";
@@ -81,5 +84,32 @@
                 result = "Doucz się koniecznie!";
         }
         window.alert(result);
+    }
+
+    function countBmi() {
+        var weight = getFloat("Podaj swoją wagę w kilogramach");
+        var height = getFloat("Podaj swój wzrost w metrach");
+        var bmi = Math.round(weight / height / height * 100) / 100;
+        var result = "Twoje BMI to " + bmi + ", ";
+        if (bmi < 22) {
+            result += "do Lewego trochę Ci brakuje, musisz przypakować!";
+        } else if (bmi < 24) {
+            result += "jesteś prawie jak Lewy!";
+        } else {
+            result += "Lewy nie jest taki gruby, musisz schudnąć!";
+        }
+        window.alert(result);
+    }
+
+    function getFloat(message) {
+        var str = window.prompt(message);
+        var float = parseFloat(str);
+        var invalid = isNaN(float);
+        if (invalid) {
+            return getFloat(message);
+        }
+        else {
+            return float;
+        }
     }
 }());
