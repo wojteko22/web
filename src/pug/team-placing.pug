@@ -1,0 +1,22 @@
+extends common/template
+
+block head
+  meta(name='description' content='Ustawienie składu')
+  meta(name='keywords' content='reprezentacja, piłka nożna, skład, zespół, zawodnicy, ustawienie')
+  title Ustawienie składu
+  link(rel='stylesheet' href='../css/team-placing.css')
+  script(src='../js/team-placing.js')
+block body
+  section
+    h1 Zaplanuj ustawienie: kliknij element i wybierz odpowiednią opcję
+    div#placing.marked Pozycje
+      div Obrońcy
+        div Piszczek
+    form
+      p
+        input#input
+        input#appendBtn(type = "button" value = "Dodaj jako ostatnie dziecko elementu")
+        input#insertBeforeBtn(type = "button" value = "Dodaj przed elementem")
+        input#replaceBtn(type = "button" value = "Dodaj zamiast elementu")
+      p
+        input#deleteBtn(type = "button" value = "Usuń element")
