@@ -4,17 +4,16 @@
   document.addEventListener('keypress', showCollectionsSize)
 
   function showCollectionsSize (e) {
-    e = e || window.event // todo: czemu w ogóle tu ten window.event (depracated)?
-    var key = e.which || e.keyCode // todo: keyCode jest depracated, na liście jest, ale tu po co w ogóle?
-    if (key === 109) { // todo: co to za klawisze? coś na numerycznej? bo mi nie działają (może trzeba włączyć, nie umiem), komentarz by się przydał
+    var key = e.key
+    if (key === '1') {
       window.alert(alertMessage())
     }
 
-    if (key === 110) {
+    if (key === '2') {
       markSpecyficLinkName()
     }
 
-    if (key === 98) {
+    if (key === '3') {
       markSpecyficIndexImage()
     }
   }
@@ -27,7 +26,7 @@
   }
 
   function markSpecyficLinkName () {
-    var name = window.prompt('Podaj nazwę')
+    var name = window.prompt('Podaj nazwę linka')
     var element = document.links.namedItem(name)
     if (element) {
       element.style.backgroundColor = 'red'
