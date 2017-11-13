@@ -53,9 +53,14 @@
   }
 
   function play (event) {
-    var x = event.clientX - 100
-    var y = event.clientY - 400
-    document.getElementById('animatedBall').style.transform = 'translate(' + x + 'px,' + y + 'px)'
+    var x = event.clientX
+    var y = event.clientY
+    updateCoordinates(event.screenX, event.screenY, x, y)
+    document.getElementById('animatedBall').style.transform = 'translate(' + (x - 100) + 'px,' + (y - 400) + 'px)'
+  }
+
+  function updateCoordinates (sx, sy, cx, cy) {
+    document.getElementById('coordinates').innerHTML = 'screen: ' + sx + ' x ' + sy + '\nclient: ' + cx + ' x ' + cy
   }
 
   function mouseOver () {
