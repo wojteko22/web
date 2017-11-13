@@ -17,7 +17,7 @@
   }
 
   function changeBall (keyCode) {
-    if (keyCode === 83) {
+    if (keyCode === 83) { // 's'
       if (!isSmieszking) {
         isSmieszking = true
         document.getElementById('animatedBall').addEventListener('mousedown', altMouse)
@@ -29,7 +29,7 @@
   }
 
   function moveBall (keyCode) {
-    if (keyCode === 77) {
+    if (keyCode === 77) { // 'm'
       if (!isPlay) {
         isPlay = true
         document.addEventListener('mousemove', play)
@@ -52,6 +52,12 @@
     }
   }
 
+  function play (event) {
+    var x = event.clientX - 100
+    var y = event.clientY - 400
+    document.getElementById('animatedBall').style.transform = 'translate(' + x + 'px,' + y + 'px)'
+  }
+
   function mouseOver () {
     document.getElementById('animatedBall').style.width = '200px'
     document.getElementById('animatedBall').style.height = '200px'
@@ -60,11 +66,5 @@
   function mouseOut () {
     document.getElementById('animatedBall').style.width = '100px'
     document.getElementById('animatedBall').style.height = '100px'
-  }
-
-  function play (event) {
-    var x = event.screenX
-    var y = event.screenY - 400
-    document.getElementById('animatedBall').style.transform = 'translate(' + x + 'px,' + y + 'px)'
   }
 }())
