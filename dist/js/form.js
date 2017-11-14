@@ -18,7 +18,7 @@
     var object = document.getElementById(id)
     var messageBox = document.getElementById('message')
     object.addEventListener('focus', function () { messageBox.innerHTML = text })
-    object.addEventListener('blur', function () { messageBox.innerHTML = text })
+    object.addEventListener('blur', function () { messageBox.innerHTML = 'Wybierz pole' })
   }
 
   function registerFormListeners () {
