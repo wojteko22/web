@@ -9,12 +9,13 @@ block head
 block body
   section
     h2 Formularz kontaktowy
-    form#form(action='mailto:dawidrusiecki6@gmail.com', method='post', autocomplete='on')
+    form#form(action='../php/script.php', method='post', autocomplete='on')
       p
         label
           | Imię i nazwisko:
           |
           input#name(type='text', name='name', placeholder='Imię i nazwisko', autofocus)
+
       p
         label
           | Email:
@@ -22,10 +23,68 @@ block body
           input#email(type='email', name='email', placeholder='Email')
           |
           | some@domain.com
-      P
-          | Wiadomość:
-          br
-          textarea#comment(name='comment')
+
+      P Płeć:
+      label
+        input(type='radio' name='sex' value='f')
+        | Kobieta
+      label
+        input(type='radio' name='sex' value='m')
+        | Mężczyzna
+
+      P Ulubiony zawodnik:
+      label
+        input(type='radio' name='player' value='lewandowski')
+        | Lewandowski
+      label
+        input(type='radio' name='player' value='grosicki')
+        | Grosicki
+      label
+        input(type='radio' name='player' value='piszczek')
+        | Piszczek
+
+      p Umiejętności:
+      label
+        input(type='checkbox' name='skills' value='dribble')
+        | Drybling
+      label
+        input(type='checkbox' name='skills' value='kicks')
+        | Rzuty karne
+      label
+        input(type='checkbox' name='skills' value='passes')
+        | Podania
+
+      p Zainteresowania:
+      label
+        input(type='checkbox' name='interests' value='sport')
+        | Sport
+      label
+        input(type='checkbox' name='interests' value='celebs')
+        | Celebryci
+      label
+        input(type='checkbox' name='interests' value='hajto')
+        | Tomasz Hajto
+
+      p
+        label
+          | Rozmiar koszulki:
+          |
+          select(name='size')
+            option XXL
+            option XL
+            option L
+            option M
+            option S
+            option XS
+      p
+        label
+          | Kolor koszulki:
+          |
+          select(name='color')
+            option(value='black') Czarny
+            option(value='red') Czerwony
+            option(value='blue') Niebieski
+            option(value='green') Zielony
       div#message
       input(type='submit', value='Wyślij')
       input(type='reset', value='Wyczyść')
