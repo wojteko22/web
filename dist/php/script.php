@@ -18,13 +18,24 @@ print("<p>BTW, o to trochę możliwości PHP:</p>");
 <details>
     <summary>Typowanie dynamiczne</summary>
     <?php
-    $x = 3;
-    print(
-        '<p>Zadeklarowaliśmy i zainicjowaliśmy zmienną: $x = ' . $x . ';</p>');
-    print('<p>gettype($x) = ' . gettype($x) . '</p>');
-    $x = 'trzy';
-    print('<p>$x = "trzy";</p>');
-    print('<p>gettype($x) = ' . gettype($x) . '</p>');
+    print('<p>$a = 3</p>');
+    $a = 3;
+    print('<p>Wartość gettype($a): ' . gettype($a) . '</p>');
+    $a = 'trzy';
+    print('<p>$a = "trzy";</p>');
+    print('<p>Wartość gettype($a): ' . gettype($a) . '</p>');
+    ?>
+</details>
+<details>
+    <summary>Konwersja typów</summary>
+    <?php
+    print('<p>$b = 3.5</p>');
+    $b = 3.5;
+    print('<p>Wartość gettype($b): ' . gettype($b) . '</p>');
+    print('<p>settype($b, integer)</p>');
+    settype($b, 'integer');
+    print('<p>Wartość $b: ' . $b . '</p>');
+    print('<p>Wartość gettype($b): ' . gettype($b) . '</p>')
     ?>
 </details>
 </body>
