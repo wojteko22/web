@@ -111,5 +111,18 @@ print("<p>BTW, oto trochę możliwości PHP:</p>");
     print("<p>A gdzybyś był w klasie z Mariuszem Lewandowskim w dzienniku szkolnym był byś $positionInList nim.</p>")
     ?>
 </details>
+<details>
+    <summary>Surprise</summary>
+    <?php
+    $requestName = $_REQUEST["name"];
+    $serverIpAddress = $_SERVER["SERVER_ADDR"];
+    $clientIp = $_SERVER["REMOTE_ADDR"];
+    $userPort = $_SERVER["REMOTE_PORT"];
+    print("<p> Ooo patrz $requestName co wiemy:</p>");
+    print("<p>Adress IP servera: $serverIpAddress</p>");
+    print("<p>Twój adres ip: $clientIp</p>");
+    print("<p>Twój port: $userPort</p>");
+    ?>
+</details>
 </body>
 </html>
