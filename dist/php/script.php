@@ -13,7 +13,7 @@ $email = $_POST["email"];
 $emailOk = preg_match("/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $name);
 if (!$nameOk)
     print("<p>Wprowadzono niepoprawny email :(</p>");
-print("<p>BTW, o to trochę możliwości PHP:</p>");
+print("<p>BTW, oto trochę możliwości PHP:</p>");
 ?>
 <details>
     <summary>Typowanie dynamiczne</summary>
@@ -61,6 +61,29 @@ print("<p>BTW, o to trochę możliwości PHP:</p>");
     print('<p>Wartość $d: ' . $d . '</p>');
     print('<p>Wartość "3 > 2": ' . (3 > 2) . '</p>');
     print('<p>Wartość "2 + 2 * 2": ' . (2 + 2 * 2) . '</p>');
+    ?>
+</details>
+<details>
+    <summary>Tablice</summary>
+    <?php
+    $keepers = array("Szczęsny", "Fabiański", "Boruc");
+    print('<p>Iteracja po tablicy indeksowanej numerycznie:</p>');
+    for ($i = 0; $i < count($keepers); ++$i) {
+        $j = $i + 1;
+        print("<p>Bramkarz nr $j to $keepers[$i]</p>");
+    }
+    $teams = array(
+        "Lewandowski" => "Bayern Monachium",
+        "Kamil Grosicki" => "Hull City",
+        "Piotr Zieliński" => "S.S.C. Napoli",
+        "Kuba Błaszczykowski" => "VfL Wolfsburg"
+    );
+    print('<br><p>Iteracja po tablicy asocjacyjnej:</p>');
+    for (reset($teams); $element = key($teams); next($teams))
+        print("<p>$element gra w klubie $teams[$element]</p>");
+    print('<br><p>Jeszcze jedna iteracja po tej samej tablicy asocjacyjnej:</p>');
+    foreach ($teams as $player => $team)
+        print("<p>$player gra w klubie $team</p>");
     ?>
 </details>
 </body>
