@@ -7,11 +7,15 @@
 <?php
 $name = $_POST["name"];
 $nameOk = preg_match("/^[a-zA-z]+ [a-zA-z]+$/", $name);
-if (!$nameOk)
+$name = preg_replace("/\b(pazdan)\b/i", "Pirania", $name);
+if (!$nameOk) {
     print("<p>Imię i nazwisko to dwa wyrazy składające się wyłącznie z liter!</p>");
+    die();
+} else
+    print("<p>Witaj $name ! :)</p>");
 $email = $_POST["email"];
 $emailOk = preg_match("/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $name);
-if (!$nameOk)
+if (!$emailOk)
     print("<p>Wprowadzono niepoprawny email :(</p>");
 print("<p>BTW, oto trochę możliwości PHP:</p>");
 ?>
@@ -84,6 +88,27 @@ print("<p>BTW, oto trochę możliwości PHP:</p>");
     print('<br><p>Jeszcze jedna iteracja po tej samej tablicy asocjacyjnej:</p>');
     foreach ($teams as $player => $team)
         print("<p>$player gra w klubie $team</p>");
+    ?>
+</details>
+<details>
+    <summary>Porównywanie napisów</summary>
+    <?php
+    $lewy = "Lewandowski";
+    $surname = explode(" ", $name)[1];
+    if ($surname < $lewy)
+        $positionInList = "przed";
+    elseif ($surname > $lewy)
+        $positionInList = "po";
+    else
+        $positionInList = "Fuck!! masz tak samo na nazwisko jakaś rodzina z";
+    print("<p>Gdzybyś był w klasie z Robertem Lewandowskim w dzienniku szkolnym był byś $positionInList nim.</p>");
+    if (strcmp($surname, $lewy) == -1)
+        $positionInList = "przed";
+    elseif (strcmp($surname, $lewy) == 1)
+        $positionInList = "po";
+    else
+        $positionInList = "Fuck!! z Mariuszem też masz tak samo na nazwisko, znasz się osobiście z";
+    print("<p>A gdzybyś był w klasie z Mariuszem Lewandowskim w dzienniku szkolnym był byś $positionInList nim.</p>")
     ?>
 </details>
 </body>
