@@ -38,5 +38,16 @@ print("<p>BTW, o to trochę możliwości PHP:</p>");
     print('<p>Wartość gettype($b): ' . gettype($b) . '</p>')
     ?>
 </details>
+<details>
+    <summary>Rzutowanie</summary>
+    <?php
+    print('<p>$c = 3.5</p>');
+    $c = 3.5;
+    print('<p>Wartość gettype($c): ' . gettype($c) . '</p>');
+    print('<p>Wartość (integer) $c: ' . (integer)$c . '</p>');
+    print('<p>Wartość $c: ' . $c . '</p>');
+    print('<p>Wartość gettype($c): ' . gettype($c) . '</p>')
+    ?>
+</details>
 </body>
 </html>
