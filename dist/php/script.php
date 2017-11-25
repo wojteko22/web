@@ -49,5 +49,19 @@ print("<p>BTW, o to trochę możliwości PHP:</p>");
     print('<p>Wartość gettype($c): ' . gettype($c) . '</p>')
     ?>
 </details>
+<details>
+    <summary>Operatory</summary>
+    <?php
+    define("VALUE", 2);
+    print('<p>Zdefiniowano stałą VALUE równą ' . VALUE . '</p>');
+    print('<p>$d = 3</p>');
+    $d = 3;
+    print('<p>$d += VALUE</p>');
+    $d += VALUE;
+    print('<p>Wartość $d: ' . $d . '</p>');
+    print('<p>Wartość "3 > 2": ' . (3 > 2) . '</p>');
+    print('<p>Wartość "2 + 2 * 2": ' . (2 + 2 * 2) . '</p>');
+    ?>
+</details>
 </body>
 </html>
