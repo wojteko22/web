@@ -10,6 +10,9 @@ $nameOk = preg_match("/^[a-zA-z]+ [a-zA-z]+$/", $name);
 $name = preg_replace("/\b(pazdan)\b/i", "Pirania", $name);
 if (!$nameOk) {
     print("<p>Imię i nazwisko to dwa wyrazy składające się wyłącznie z liter!</p>");
+    $specialCharsInName = preg_match("/[\"\\/]/", $name);
+    if ($specialCharsInName)
+        print("<p>BTW dlaczego masz jakieś znaki specjalne w imieniu i nazwisku :P</p>");
     die();
 } else
     print("<p>Witaj $name ! :)</p>");
