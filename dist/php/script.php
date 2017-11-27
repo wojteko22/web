@@ -12,10 +12,10 @@ if (!$nameOk) {
     print("<p>Imię i nazwisko to dwa wyrazy składające się wyłącznie z liter!</p>");
     $specialCharsInName = preg_match("/[\"\\/]/", $name);
     if ($specialCharsInName)
-        print("<p>BTW dlaczego masz jakieś znaki specjalne w imieniu i nazwisku :P</p>");
+        print("<p>BTW dlaczego masz jakieś znaki specjalne w imieniu i nazwisku? :P</p>");
     die();
 } else
-    print("<p>Witaj $name ! :)</p>");
+    print("<p>Witaj $name! :)</p>");
 $email = $_POST["email"];
 $emailOk = preg_match("/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $name);
 if (!$emailOk)
@@ -104,14 +104,14 @@ print("<p>BTW, oto trochę możliwości PHP:</p>");
         $positionInList = "po";
     else
         $positionInList = "Fuck!! masz tak samo na nazwisko jakaś rodzina z";
-    print("<p>Gdzybyś był w klasie z Robertem Lewandowskim w dzienniku szkolnym był byś $positionInList nim.</p>");
+    print("<p>Gdybyś był w klasie z Robertem Lewandowskim w dzienniku szkolnym byłbyś $positionInList nim.</p>");
     if (strcmp($surname, $lewy) == -1)
         $positionInList = "przed";
     elseif (strcmp($surname, $lewy) == 1)
         $positionInList = "po";
     else
         $positionInList = "Fuck!! z Mariuszem też masz tak samo na nazwisko, znasz się osobiście z";
-    print("<p>A gdzybyś był w klasie z Mariuszem Lewandowskim w dzienniku szkolnym był byś $positionInList nim.</p>")
+    print("<p>A gdybyś był w klasie z Mariuszem Lewandowskim w dzienniku szkolnym byłbyś $positionInList nim.</p>")
     ?>
 </details>
 <details>
@@ -121,8 +121,8 @@ print("<p>BTW, oto trochę możliwości PHP:</p>");
     $serverIpAddress = $_SERVER["SERVER_ADDR"];
     $clientIp = $_SERVER["REMOTE_ADDR"];
     $userPort = $_SERVER["REMOTE_PORT"];
-    print("<p> Ooo patrz $requestName co wiemy:</p>");
-    print("<p>Adress IP servera: $serverIpAddress</p>");
+    print("<p> Ooo, patrz $requestName, co wiemy:</p>");
+    print("<p>Adres IP servera: $serverIpAddress</p>");
     print("<p>Twój adres ip: $clientIp</p>");
     print("<p>Twój port: $userPort</p>");
     ?>
