@@ -119,11 +119,13 @@ print("<p>BTW, oto trochę możliwości PHP:</p>");
     <?php
     $requestName = $_REQUEST["name"];
     $serverIpAddress = $_SERVER["SERVER_ADDR"];
+    $serverPort = $_SERVER["SERVER_PORT"];
     $clientIp = $_SERVER["REMOTE_ADDR"];
     $userPort = $_SERVER["REMOTE_PORT"];
     print("<p> Ooo, patrz $requestName, co wiemy:</p>");
     print("<p>Adres IP servera: $serverIpAddress</p>");
-    print("<p>Twój adres ip: $clientIp</p>");
+    print("<p>Port servera: $serverPort</p>");
+    print("<p>Twój adres IP: $clientIp</p>");
     print("<p>Twój port: $userPort</p>");
     ?>
 </details>
