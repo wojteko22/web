@@ -1,0 +1,28 @@
+extends ../common/template
+
+block head
+  meta(name='description' content='Memy')
+  meta(name='keywords' content='memy, Hajto')
+  title Memy
+  link(rel='stylesheet', href='../css/text.css')
+  script(src='../js/memes.js')
+block body
+  .userPanel
+    | <?php
+    |         session_start();
+    |         if (!isset($_SESSION['loginSuccessful']) || !$_SESSION['loginSuccessful']) {
+    |                 header("Location: ../html/login-panel.php");
+    |                 exit();
+    |         }
+    |         print("<p class='userName'>Witaj $_SESSION[userLogin]</p>");
+    |         print("<p class='sid'>SID: $_COOKIE[SID]</p>");
+    | ?>
+    a(href='../php/log-out.php')
+      button wyloguj
+  section
+    h1 Memy (i nie tylko!)
+    button.button#newMemeButton Losuj nowego mema
+    button.button#quizButton Sprawdź swoją wiedzę
+    button.button#bmiButton Czy jesteś jak Lewy?
+    p
+      img#meme(alt='Mem z Hajto', src='../resources/memes/meme1.jpg')
