@@ -1,0 +1,25 @@
+extends ../common/template
+
+block head
+  meta(name='description' content='Formularz do zmiany stylu')
+  meta(name='keywords' content='formularz, styl')
+  title Zmiana stylu
+block body
+  section
+    h1 Zmień styl
+    form(action='../php/cookies-save.php', method='post')
+      p
+        label
+          | Styl:
+          |
+          select(name='style')
+            option(value='classic') Klasyczny
+            option(value='dark') Ciemny
+            option(value='crazy') Szalony
+      input(type='submit', value='Zastosuj')
+
+    h1 Aktualna zawartość ciasteczek:
+    | <?php
+    | foreach ($_COOKIE as $key => $value)
+    |   print("<p>$key: $value</p>");
+    | ?>
