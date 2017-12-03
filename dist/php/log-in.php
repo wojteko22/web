@@ -6,8 +6,7 @@
  * Time: 21:33
  */
 
-$logins = array("dawid", "wojtek");
-$passwords = array("ptaki", "okon");
+$passwords = array("dawid" => "ptakiLatajaKluczem", "wojtek" => "okon");
 
 define("SECONDS_TO_EXPIRE", 25 * 60);
 $expirationTime = time() + SECONDS_TO_EXPIRE;
@@ -25,8 +24,8 @@ $password = $_POST["password"];
 
 $loginSuccessful = false;
 
-for ($i = 0; $i < count($logins) && !$loginSuccessful; $i++)
-    $loginSuccessful = ($logins[$i] == $login && $passwords[$i] == $password);
+if(array_key_exists($login, $passwords))
+    $loginSuccessful = $passwords[$login] == $password;
 
 $_SESSION['loginSuccessful'] = $loginSuccessful;
 
