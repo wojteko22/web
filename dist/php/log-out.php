@@ -7,4 +7,7 @@
  */
 session_start();
 session_unset();
+session_destroy();
+setcookie('PHPSESSID', '', time() - 3600, '/');
+unset($_COOKIE['PHPSESSID']);
 header("Location: ../html/login-panel.php");

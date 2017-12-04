@@ -12,7 +12,6 @@ define("SECONDS_TO_EXPIRE", 25 * 60);
 $expirationTime = time() + SECONDS_TO_EXPIRE;
 $path = "/";
 session_start();
-setcookie("SID", session_id(), $expirationTime, $path);
 
 if (!isset($_POST["login"]) || !isset($_POST["password"])) {
     header("Location: ../html/login-panel.php");
