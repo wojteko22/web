@@ -6,7 +6,8 @@ block body
   | <?php
   | session_start();
   | if (isset($_SESSION['loginSuccessful']) && $_SESSION['loginSuccessful']) {
-  |         header('Location: ../html/memes.php');
+  |         $destination = $_SESSION['destination'];
+  |         header("Location: $destination");
   |         exit();
   |    }
   | ?>
@@ -23,6 +24,8 @@ block body
       |
       input(type="password", name="password")
     | <?php
+    | if (!isset($_SESSION['destination']))
+    |         $_SESSION['destination'] = '../html/memes.php';
     | if (isset($_SESSION['errorMessage']) && !$_SESSION['loginSuccessful'])
     |         print("<p class='error'>$_SESSION[errorMessage]</p>");
     | ?>

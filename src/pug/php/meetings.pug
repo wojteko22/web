@@ -1,4 +1,4 @@
-extends common/template
+extends ../common/template
 
 block head
   meta(name='description' content='Informacje o reprezentacji Polski')
@@ -7,6 +7,8 @@ block head
   script(src='../js/events.js')
   title Piłka nożna
 block body
+  include ../common/userPanel
+  +user("../html/meetings.php")
   article
     header
       h4 Relacje ze zgrupowań eliminacyjnych:
@@ -33,4 +35,4 @@ block body
         a(href='https://www.youtube.com/watch?v=wmXHdXrBjgI&index=100&list=PLG6TbQ_gBOAx1CAZphdChmWyKCoqTqNUP', target='blank') Kazachstan - Polska
   img#animatedBall.animateBall(src='../resources/ball.png' alt='animated ball')
   #coordinates
-  include common/footer
+  include ../common/footer

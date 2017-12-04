@@ -30,7 +30,8 @@ $_SESSION['loginSuccessful'] = $loginSuccessful;
 
 if ($loginSuccessful) {
     $_SESSION['userLogin'] = $login;
-    header('Location: ../html/memes.php');
+    $destination = $_SESSION['destination'];
+    header("Location: $destination");
 }
 else {
     $_SESSION['errorMessage'] = "Nieprawidłowy login lub hasło";
