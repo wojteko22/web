@@ -1,5 +1,8 @@
 extends ../common/template
-
+block first
+  | <?php
+  | session_start()
+  | ?>
 block head
   meta(name='description' content='Memy')
   meta(name='keywords' content='memy, Hajto')

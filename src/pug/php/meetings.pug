@@ -1,5 +1,8 @@
 extends ../common/template
-
+block first
+  | <?php
+  | session_start()
+  | ?>
 block head
   meta(name='description' content='Informacje o reprezentacji Polski')
   meta(name='keywords' content='Polska, piłka nożna, reprezentacja')

@@ -1,10 +1,13 @@
 extends ../common/template
+block first
+  | <?php
+  | session_start()
+  | ?>
 block head
   meta(name='description' content='Logowanie')
   title Panel logowania
 block body
   | <?php
-  | session_start();
   | if (isset($_SESSION['loginSuccessful']) && $_SESSION['loginSuccessful']) {
   |         $destination = $_SESSION['destination'];
   |         header("Location: $destination");

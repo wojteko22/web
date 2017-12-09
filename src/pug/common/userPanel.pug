@@ -1,7 +1,6 @@
 mixin user(destination)
   .userPanel
     | <?php
-    |         session_start();
     |         if (!isset($_SESSION['loginSuccessful']) || !$_SESSION['loginSuccessful']) {
     |                 $_SESSION['destination']="
     =destination

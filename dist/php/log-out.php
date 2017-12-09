@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Dawid
- * Date: 03/12/2017
- * Time: 23:31
- */
 session_start();
+$params = session_get_cookie_params();
+setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
 session_unset();
 session_destroy();
-setcookie('PHPSESSID', '', time() - 3600, '/');
-unset($_COOKIE['PHPSESSID']);
 header("Location: ../html/login-panel.php");
