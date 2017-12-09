@@ -16,5 +16,19 @@ if (mysqli_query($conn, $sql) === TRUE) {
 
 // todo: tworzy tabele
 // todo: wypełnia bazę danymi
+//USE nazwa_bazy;
+//
+//CREATE TABLE nazwa_tabeli
+//(
+//    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//   ...
+//   ...
+//   ...
+//   ...
+//);
+//
+//INSERT INTO nazwa_tabeli (...) VALUES (...);
+//INSERT INTO nazwa_tabeli (...) VALUES (...);
+//INSERT INTO nazwa_tabeli (...) VALUES (...);
 
 $conn->close();
