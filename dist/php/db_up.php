@@ -32,3 +32,8 @@ if (mysqli_query($conn, $sql) === TRUE) {
 //INSERT INTO nazwa_tabeli (...) VALUES (...);
 
 $conn->close();
+
+// todo: Wykorzystać gdzieś:
+//• mysqli_fetch_row(),
+//• quotemeta(),
+//• zmienna nazwa zmiennej ($$zmienna).
