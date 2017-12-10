@@ -3,13 +3,18 @@ table
   border: 1px solid gray
   border-collapse: collapse
 
-  tr
-    th, td
-      padding: 5px
-      border: 1px solid gray
+  th, td
+    padding: 5px
+    border: 1px solid gray
 
-    &:nth-child(odd)
-      background-color: lightblue
+  thead
+    background-color: lightgreen
 
-    &:first-child
-      background-color: lightgreen
+    select
+      display: block
+      margin: auto
+
+  tbody
+    tr
+      &:nth-child(even)
+        background-color: lightblue

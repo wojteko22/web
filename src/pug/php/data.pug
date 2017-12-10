@@ -3,6 +3,7 @@ block head
   meta(name='description' content='Dane')
   meta(name='keywords' content='dane')
   link(rel='stylesheet' href='../css/data.css')
+  script(src='../js/filter.js')
   title Dane
 block body
   div.
@@ -21,12 +22,21 @@ block body
 
   table
     caption Dane z bazy
-      tr
+      thead#thead
+        tr
           th login
+            select
+              option *
           th hasło
+            select
+              option *
           th email
+            select
+              option *
           th telefon
-      div.
+            select
+              option *
+      tbody#tbody.
         <?php
         while($row = mysqli_fetch_row($result)) {
             print("<tr>");
