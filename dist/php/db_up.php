@@ -4,36 +4,37 @@ $username = "rusoko";
 $password = "abc123";
 
 $conn = mysqli_connect($servername, $username, $password);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$sql = "CREATE DATABASE data";
-if (mysqli_query($conn, $sql) === TRUE) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . mysqli_error($conn);
-}
+if ($conn->connect_error)
+    die("<p>Connection failed: " . $conn->connect_error . "</p>");
 
-// todo: tworzy tabele
-// todo: wypełnia bazę danymi
-//USE nazwa_bazy;
-//
-//CREATE TABLE nazwa_tabeli
-//(
-//    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//   ...
-//   ...
-//   ...
-//   ...
-//);
-//
-//INSERT INTO nazwa_tabeli (...) VALUES (...);
-//INSERT INTO nazwa_tabeli (...) VALUES (...);
-//INSERT INTO nazwa_tabeli (...) VALUES (...);
+$sql = "CREATE DATABASE data";
+if (!mysqli_query($conn, $sql))
+    die("<p>Error creating database: " . mysqli_error($conn) . "</p>");
+echo "<p>Database created successfully</p>";
+
+if (!mysqli_select_db($conn, "data"))
+    die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
+echo "<p>Database data opened successfully</p>";
+
+$sql = "CREATE TABLE people (
+    login VARCHAR(255) NOT NULL PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(30) NOT NULL
+);";
+if (!(mysqli_query($conn, $sql)))
+    die("<p>Error creating table people: " . mysqli_error($conn) . "</p>");
+echo "<p>Table people created successfully</p>";
+
+$sql = "INSERT INTO people(login, password, email, phone) VALUES
+('wojtek', 'okon', 'wojteczek@gmail.com', '" . mysqli_real_escape_string($conn, '(+48)123456678') . "'),
+('dawid', 'ptaki', 'dawidek@gmail.com', '" . mysqli_real_escape_string($conn, '(+48)323456678') . "')";
+if (!(mysqli_query($conn, $sql)))
+    die("<p>Error inserting rows to table people: " . mysqli_error($conn) . "</p>");
+echo "<p>Rows inserted successfully to table people</p>";
 
 $conn->close();
 
 // todo: Wykorzystać gdzieś:
 //• mysqli_fetch_row(),
 //• quotemeta(),
-//• zmienna nazwa zmiennej ($$zmienna).
