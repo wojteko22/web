@@ -5,18 +5,18 @@
 
   var tableBody
   var rows
+  var selects
 
   function init () {
     tableBody = document.getElementById('tbody')
     rows = tableBody.getElementsByTagName('tr')
+    selects = document.getElementById('thead').getElementsByTagName('select')
     initSelects()
   }
 
   function initSelects () {
-    var tableHead = document.getElementById('thead')
-    var headers = tableHead.getElementsByTagName('th')
-    for (var columnIndex = 0; columnIndex < headers.length; columnIndex++) {
-      var select = headers[columnIndex].getElementsByTagName('select')[0]
+    for (var columnIndex = 0; columnIndex < selects.length; columnIndex++) {
+      var select = selects[columnIndex]
       var allValues = getAllValues(columnIndex)
       var options = allValues.map(function (value) {
         var option = document.createElement('option')
@@ -26,14 +26,8 @@
       })
       options.forEach(function (option) {
         select.appendChild(option)
-      });
-      (function () {
-        var index = columnIndex
-        select.addEventListener('change', function () {
-          var selectedOption = this.options[this.selectedIndex]
-          filter(selectedOption.textContent, index)
-        })
-      })()
+      })
+      select.addEventListener('change', filter)
     }
   }
 
@@ -49,14 +43,19 @@
     return columnValues
   }
 
-  function filter (text, columnIndex) {
-    for (var rowIndex = 0; rowIndex < rows.length; rowIndex++) {
-      var row = rows[rowIndex]
-      var value = row.cells[columnIndex]
-      if (value.textContent === text || text === '*') {
-        row.style.display = 'table-row'
-      } else {
-        row.style.display = 'none'
+  function filter () {
+    for (var index = 0; index < rows.length; index++) {
+      rows[index].style.display = 'table-row'
+    }
+    for (var columnIndex = 0; columnIndex < selects.length; columnIndex++) {
+      var select = selects[columnIndex]
+      var selectedOption = select.options[select.selectedIndex].textContent
+      for (var rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+        var row = rows[rowIndex]
+        var value = row.cells[columnIndex]
+        if (selectedOption !== '*' && value.textContent !== selectedOption) {
+          row.style.display = 'none'
+        }
       }
     }
   }
