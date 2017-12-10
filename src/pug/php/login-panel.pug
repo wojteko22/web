@@ -29,7 +29,7 @@ block body
     | <?php
     | if (!isset($_SESSION['destination']))
     |         $_SESSION['destination'] = '../html/memes.php';
-    | if (isset($_SESSION['errorMessage']) && !$_SESSION['loginSuccessful'])
+    | if (isset($_SESSION['errorMessage']))
     |         print("<p class='error'>$_SESSION[errorMessage]</p>");
     | ?>
     input(type="submit", value="Log in")
