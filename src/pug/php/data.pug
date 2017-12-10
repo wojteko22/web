@@ -1,0 +1,38 @@
+extends ../common/template
+block head
+  meta(name='description' content='Dane')
+  meta(name='keywords' content='dane')
+  link(rel='stylesheet' href='../css/data.css')
+  title Dane
+block body
+  div.
+    <?php
+    if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
+        die("<p>Connection failed: " . $conn->connect_error . "</p>");
+
+    if (!mysqli_select_db($conn, "data"))
+        die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
+
+    $sql = "SELECT login, password, email, phone FROM people";
+    if (!($result = mysqli_query($conn, $sql)))
+        die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
+    mysqli_close($conn);
+    ?>
+
+  table
+    caption Dane z bazy
+      tr
+          th login
+          th hasło
+          th email
+          th telefon
+      div.
+        <?php
+        for ($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
+            print("<tr>");
+            foreach ($row as $key => $value)
+                print("<td>$value</td>");
+            print("</tr>");
+        }
+        ?>
+  include ../common/footer
