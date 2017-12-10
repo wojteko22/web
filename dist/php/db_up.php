@@ -30,6 +30,5 @@ echo "<p>Rows inserted successfully to table people</p>";
 
 $conn->close();
 
-// todo: Wykorzystać gdzieś:
-//• mysqli_fetch_row(),
-//• quotemeta(),
+// todo: Wyświetlić dane
+// todo: Wykorzystać gdzieś: quotemeta(),
