@@ -8,7 +8,7 @@ block head
   title Panel logowania
 block body
   | <?php
-  | if (isset($_SESSION['loginSuccessful']) && $_SESSION['loginSuccessful']) {
+  | if (isset($_SESSION['userLogin'])) {
   |         $destination = $_SESSION['destination'];
   |         header("Location: $destination");
   |         exit();

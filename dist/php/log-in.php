@@ -1,17 +1,6 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Dawid
- * Date: 03/12/2017
- * Time: 21:33
- */
-
-$passwords = array("dawid" => "ptakiLatajaKluczem", "wojtek" => "okon");
-
-define("SECONDS_TO_EXPIRE", 25 * 60);
-$expirationTime = time() + SECONDS_TO_EXPIRE;
-$path = "/";
 session_start();
+$passwords = array("dawid" => "ptakiLatajaKluczem", "wojtek" => "okon");
 
 if (!isset($_POST["login"]) || !isset($_POST["password"])) {
     header("Location: ../html/login-panel.php");
@@ -25,8 +14,6 @@ $loginSuccessful = false;
 
 if(array_key_exists($login, $passwords))
     $loginSuccessful = $passwords[$login] == $password;
-
-$_SESSION['loginSuccessful'] = $loginSuccessful;
 
 if ($loginSuccessful) {
     $_SESSION['userLogin'] = $login;

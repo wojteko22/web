@@ -1,0 +1,12 @@
+extends ../common/template
+block first
+  | <?php
+  | session_start()
+  | ?>
+block head
+  meta(name='description' content='Rejestracja i dane osobowe')
+  meta(name='keywords' content='Rejestarcja, dane, edycja')
+  title Rejestracja i dane osobowe
+block body
+  h4 Formularz
+  include ../common/footer
