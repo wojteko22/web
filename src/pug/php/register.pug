@@ -6,7 +6,29 @@ block first
 block head
   meta(name='description' content='Rejestracja i dane osobowe')
   meta(name='keywords' content='Rejestarcja, dane, edycja')
+  link(rel='stylesheet', href='../css/register.css')
   title Rejestracja i dane osobowe
 block body
-  h4 Formularz
+  form(method='post' action='register.php')
+    h2 Dane osobowe
+    div.
+      <?php
+      if (!isset($_SESSION['userLogin'])) {
+          $login = isset($_POST["login"]) ? $_POST["login"] : "";
+          $password = isset($_POST["password"]) ? $_POST["password"] : "";
+          $email = isset($_POST["email"]) ? $_POST["email"] : "";
+          $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
+      }
+      $formerrors = array("login" => false, "password" => false, "email" => false, "phone" => false);
+      $inputlist = array("login" => "Login użytkownika",
+          "password" => "Hasło użytkownika", "email" => "Adres email",
+          "phone" => "Numer telefonu");
+      foreach ($inputlist as $inputname => $inputalt) {
+          print("<div class='field'><label>$inputalt:<input type = 'text' name = '$inputname' value = '" . $$inputname . "'></label>");
+          if ($formerrors[($inputname)] == true)
+              print("<span class = 'error'>*</span>");
+          print("</div>");
+      }
+      ?>
+
   include ../common/footer
