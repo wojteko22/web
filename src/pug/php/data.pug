@@ -28,9 +28,9 @@ block body
           th telefon
       div.
         <?php
-        for ($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
+        while($row = mysqli_fetch_row($result)) {
             print("<tr>");
-            foreach ($row as $key => $value)
+            foreach ($row as $value)
                 print("<td>$value</td>");
             print("</tr>");
         }
