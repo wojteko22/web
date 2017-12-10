@@ -1,6 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "rusoko", "abc123");
-if ($conn->connect_error)
+if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
     die("<p>Connection failed: " . $conn->connect_error . "</p>");
 
 $sql = "CREATE DATABASE data";
