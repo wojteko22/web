@@ -42,7 +42,9 @@
     for (var rowIndex = 0; rowIndex < rows.length; rowIndex++) {
       var columns = rows[rowIndex].getElementsByTagName('td')
       var value = columns[columnIndex].textContent
-      columnValues.push(value)
+      if (columnValues.indexOf(value) === -1) {
+        columnValues.push(value)
+      }
     }
     return columnValues
   }
@@ -51,7 +53,7 @@
     for (var rowIndex = 0; rowIndex < rows.length; rowIndex++) {
       var row = rows[rowIndex]
       var value = row.cells[columnIndex]
-      if (value.textContent === text) {
+      if (value.textContent === text || text === '*') {
         row.style.display = 'table-row'
       } else {
         row.style.display = 'none'
