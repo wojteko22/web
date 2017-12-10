@@ -13,23 +13,59 @@ block body
     h2 Dane osobowe
     div.
       <?php
-      if (!isset($_SESSION['userLogin'])) {
-          $login = isset($_POST["login"]) ? $_POST["login"] : "";
-          $password = isset($_POST["password"]) ? $_POST["password"] : "";
-          $email = isset($_POST["email"]) ? $_POST["email"] : "";
-          $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
-      }
-      $formerrors = array("login" => false, "password" => false, "email" => false, "phone" => false);
-      $inputlist = array("login" => "Login użytkownika",
-          "password" => "Hasło użytkownika", "email" => "Adres email",
-          "phone" => "Numer telefonu");
-      foreach ($inputlist as $inputname => $inputalt) {
-          print("<div class='field'><label>$inputalt:<input type = 'text' name = '$inputname' value = '" . $$inputname . "'></label>");
-          if ($formerrors[($inputname)] == true)
-              print("<span class = 'error'>*</span>");
-          print("</div>");
-      }
-      ?>
+             if (!isset($_SESSION['userLogin']) || isset($_POST["submit"])) {
+                 $login = isset($_POST["login"]) ? $_POST["login"] : "";
+                 $password = isset($_POST["password"]) ? $_POST["password"] : "";
+                 $email = isset($_POST["email"]) ? $_POST["email"] : "";
+                 $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
+             } else {
+                 $conn = mysqli_connect("localhost", "rusoko", "abc123");
+                 if ($conn->connect_error)
+                     die("<p>Connection failed: " . $conn->connect_error . "</p>");
+
+                 if (!mysqli_select_db($conn, "data"))
+                     die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
+
+                 $login = $_SESSION['userLogin'];
+                 $sql = "SELECT login, password, email, phone FROM people WHERE login = '$login'";
+                 if (!($result = mysqli_query($conn, $sql)))
+                     die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
+
+                 $row = mysqli_fetch_row($result);
+                 $login = $row[0];
+                 $password = $row[1];
+                 $email = $row[2];
+                 $phone = $row[3];
+             }
+             $formerrors = array("login" => false, "password" => false, "email" => false, "phone" => false);
+             if (isset($_POST["submit"])) {
+                 if ($login == "") {
+                     $formerrors["login"] = true;
+                     $iserror = true;
+                 }
+                 if ($password == "") {
+                     $formerrors["password"] = true;
+                     $iserror = true;
+                 }
+                 if ($email == "") {
+                     $formerrors["email"] = true;
+                     $iserror = true;
+                 }
+                 if (!preg_match("/^\(\+[0-9]{2}\)[0-9]{9}$/", $phone)) {
+                     $formerrors["phone"] = true;
+                     $iserror = true;
+                 }
+             }
+             $inputlist = array("login" => "Login użytkownika",
+                 "password" => "Hasło użytkownika", "email" => "Adres email",
+                 "phone" => "Numer telefonu");
+             foreach ($inputlist as $inputname => $inputalt) {
+                 print("<div class='field'><label>$inputalt:<span class='right'><input type = 'text' name = '$inputname' value = '" . $$inputname . "'>");
+                 if ($formerrors[($inputname)] == true)
+                     print("<span class = 'error'>*</span>");
+                 print("</span></label></div>");
+             }
+             ?>
     input.submit(type = 'submit' name = 'submit' value = 'Zarejestruj się')
 
   include ../common/footer

@@ -1,9 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "rusoko";
-$password = "abc123";
-
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect("localhost", "rusoko", "abc123");
 if ($conn->connect_error)
     die("<p>Connection failed: " . $conn->connect_error . "</p>");
 
