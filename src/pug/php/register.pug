@@ -13,85 +13,86 @@ block body
     h2 Dane osobowe
     div.
       <?php
-      if (!isset($_SESSION['userLogin']) || isset($_POST["submit"])) {
-          $login = isset($_POST["login"]) ? $_POST["login"] : "";
-          $password = isset($_POST["password"]) ? $_POST["password"] : "";
-          $email = isset($_POST["email"]) ? $_POST["email"] : "";
-          $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
-      } else {
-          if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
-              die("<p>Connection failed: " . $conn->connect_error . "</p>");
-
-          if (!mysqli_select_db($conn, "data"))
-              die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
-
-          $login = $_SESSION['userLogin'];
-          $sql = "SELECT login, password, email, phone FROM people WHERE login = '$login'";
-          if (!($result = mysqli_query($conn, $sql)))
-              die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
-
-          $row = mysqli_fetch_row($result);
-          $password = $row[1];
-          $email = $row[2];
-          $phone = $row[3];
-      }
-      $formerrors = array("login" => false, "password" => false, "email" => false, "phone" => false);
-      $iserror = false;
-      if (isset($_POST["submit"])) {
-          if ($login == "") {
-              $formerrors["login"] = true;
-              $iserror = true;
-          }
-          if ($password == "") {
-              $formerrors["password"] = true;
-              $iserror = true;
-          }
-          if (!preg_match("/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $email)) {
-              $formerrors["email"] = true;
-              $iserror = true;
-          }
-          if (!preg_match("/^\(\+[0-9]{2}\)[0-9]{9}$/", $phone)) {
-              $formerrors["phone"] = true;
-              $iserror = true;
-          }
-
-          if (!$iserror) {
-              if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
-                  die("<p>Connection failed: " . $conn->connect_error . "</p>");
-
-              if (!mysqli_select_db($conn, "data"))
-                  die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
-
-              if (isset($_SESSION['userLogin'])) {
-                  $oldLogin = $_SESSION['userLogin'];
-                  $sql = "UPDATE people SET login = '$login', password = '$password', email = '$email', phone = '$phone' WHERE login = '$oldLogin'";
+              if (!isset($_SESSION['userLogin']) || isset($_POST["submit"])) {
+                  $login = isset($_POST["login"]) ? $_POST["login"] : "";
+                  $password = isset($_POST["password"]) ? $_POST["password"] : "";
+                  $email = isset($_POST["email"]) ? $_POST["email"] : "";
+                  $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
               } else {
-                  $sql = "INSERT INTO people(login, password, email, phone) VALUES
+                  if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
+                      die("<p>Connection failed: " . $conn->connect_error . "</p>");
+
+                  if (!mysqli_select_db($conn, "data"))
+                      die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
+
+                  $login = $_SESSION['userLogin'];
+                  $sql = "SELECT login, password, email, phone FROM people WHERE login = '$login'";
+                  if (!($result = mysqli_query($conn, $sql)))
+                      die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
+
+                  $row = mysqli_fetch_row($result);
+                  $password = $row[1];
+                  $email = $row[2];
+                  $phone = $row[3];
+              }
+              $formerrors = array("login" => false, "password" => false, "email" => false, "phone" => false);
+              $iserror = false;
+              if (isset($_POST["submit"])) {
+                  if ($login == "") {
+                      $formerrors["login"] = true;
+                      $iserror = true;
+                  }
+                  if ($password == "") {
+                      $formerrors["password"] = true;
+                      $iserror = true;
+                  }
+                  if (!preg_match("/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $email)) {
+                      $formerrors["email"] = true;
+                      $iserror = true;
+                  }
+                  if (!preg_match("/^\(\+[0-9]{2}\)[0-9]{9}$/", $phone)) {
+                      $formerrors["phone"] = true;
+                      $iserror = true;
+                  }
+
+                  if (!$iserror) {
+                      if (!($conn = mysqli_connect("localhost", "rusoko", "abc123")))
+                          die("<p>Connection failed: " . $conn->connect_error . "</p>");
+
+                      if (!mysqli_select_db($conn, "data"))
+                          die("<p>Error opening data database: " . mysqli_error($conn) . "</p>");
+
+                      if (isset($_SESSION['userLogin'])) {
+                          $oldLogin = $_SESSION['userLogin'];
+                          $login = quotemeta($login);
+                          $sql = "UPDATE people SET login = '$login', password = '$password', email = '$email', phone = '$phone' WHERE login = '$oldLogin'";
+                      } else {
+                          $sql = "INSERT INTO people(login, password, email, phone) VALUES
       ('$login', '$password', '$email', '" . mysqli_real_escape_string($conn, "$phone") . "')";
-      }
+                      }
 
-      if (!($result = mysqli_query($conn, $sql)))
-      die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
+                      if (!($result = mysqli_query($conn, $sql)))
+                          die("<p>Error executing query: " . mysqli_error($conn) . "</p>");
 
-      mysqli_close($conn);
+                      mysqli_close($conn);
 
-      $_SESSION['userLogin'] = $login;
+                      $_SESSION['userLogin'] = $login;
 
-      die("<p>Dane zostały zapisane</p>");
-      }
-      }
-      if ($iserror)
-      print("<p class = 'error'>Pola oznaczone * muszą zostać poprawnie wypełnione</p>");
-      $inputlist = array("login" => "Login użytkownika",
-      "password" => "Hasło użytkownika", "email" => "Adres email",
-      "phone" => "Numer telefonu");
-      foreach ($inputlist as $inputname => $inputalt) {
-      print("<div class='field'><label>$inputalt:<span class='right'><input type = 'text' name = '$inputname' value = '" . $$inputname . "'>");
-      if ($formerrors[($inputname)] == true)
-      print("<span class = 'error'>*</span>");
-      print("</span></label></div>");
-      }
-      ?>
+                      die("<p>Dane zostały zapisane</p>");
+                  }
+              }
+              if ($iserror)
+                  print("<p class = 'error'>Pola oznaczone * muszą zostać poprawnie wypełnione</p>");
+              $inputlist = array("login" => "Login użytkownika",
+                  "password" => "Hasło użytkownika", "email" => "Adres email",
+                  "phone" => "Numer telefonu");
+              foreach ($inputlist as $inputname => $inputalt) {
+                  print("<div class='field'><label>$inputalt:<span class='right'><input type = 'text' name = '$inputname' value = '" . $$inputname . "'>");
+                  if ($formerrors[($inputname)] == true)
+                      print("<span class = 'error'>*</span>");
+                  print("</span></label></div>");
+              }
+              ?>
     input.submit(type = 'submit' name = 'submit' value = 'Zapisz')
 
   include ../common/footer
