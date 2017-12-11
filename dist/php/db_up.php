@@ -30,5 +30,4 @@ echo "<p>Rows inserted successfully to table people</p>";
 
 $conn->close();
 
-// todo: Wyświetlić dane
 // todo: Wykorzystać gdzieś: quotemeta(),
