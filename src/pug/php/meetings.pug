@@ -1,8 +1,7 @@
 extends ../common/template
 block first
-  | <?php
-  | session_start()
-  | ?>
+  include ../common/userRedirectionToLogin
+  +user("../html/meetings.php")
 block head
   meta(name='description' content='Informacje o reprezentacji Polski')
   meta(name='keywords' content='Polska, piłka nożna, reprezentacja')
@@ -11,7 +10,6 @@ block head
   title Piłka nożna
 block body
   include ../common/userPanel
-  +user("../html/meetings.php")
   article
     header
       h4 Relacje ze zgrupowań eliminacyjnych:

@@ -1,19 +1,17 @@
 extends ../common/template
 block first
   | <?php
-  | session_start()
-  | ?>
-block head
-  meta(name='description' content='Logowanie')
-  title Panel logowania
-block body
-  | <?php
+  | session_start();
   | if (isset($_SESSION['userLogin'])) {
   |         $destination = $_SESSION['destination'];
   |         header("Location: $destination");
   |         exit();
   |    }
   | ?>
+block head
+  meta(name='description' content='Logowanie')
+  title Panel logowania
+block body
   h1 Panel logowania
   form(method="post", action='../php/log-in.php')
     p

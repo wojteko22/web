@@ -1,8 +1,7 @@
 extends ../common/template
 block first
-  | <?php
-  | session_start()
-  | ?>
+  include ../common/userRedirectionToLogin
+  +user("../html/meetings.php")
 block head
   meta(name='description' content='Memy')
   meta(name='keywords' content='memy, Hajto')
@@ -11,7 +10,6 @@ block head
   script(src='../js/memes.js')
 block body
   include ../common/userPanel
-  +user("../html/memes.php")
   section
     h1 Memy (i nie tylko!)
     button.button#newMemeButton Losuj nowego mema

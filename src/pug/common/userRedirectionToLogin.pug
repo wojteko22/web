@@ -1,0 +1,11 @@
+mixin user(destination)
+  | <?php
+  | session_start();
+  | if (!isset($_SESSION['userLogin'])) {
+  |   $_SESSION['destination']="
+  =destination
+  | ";
+  |   header("Location: ../html/login-panel.php");
+  |   exit();
+  | }
+  | ?>

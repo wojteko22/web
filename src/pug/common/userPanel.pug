@@ -1,16 +1,8 @@
-mixin user(destination)
-  .userPanel
-    | <?php
-    |         if (!isset($_SESSION['userLogin'])) {
-    |                 $_SESSION['destination']="
-    =destination
-    |";
-    |                 header("Location: ../html/login-panel.php");
-    |                 exit();
-    |         }
-    |         print("<p class='userName'>Witaj $_SESSION[userLogin]</p>");
-    |         $cookie = $_COOKIE['PHPSESSID'];
-    |         print("<p class='sid'>SID: $cookie</p>");
-    | ?>
-    a(href='../php/log-out.php')
-      button wyloguj
+.userPanel
+  | <?php
+  |         print("<p class='userName'>Witaj $_SESSION[userLogin]</p>");
+  |         $cookie = $_COOKIE['PHPSESSID'];
+  |         print("<p class='sid'>SID: $cookie</p>");
+  | ?>
+  a(href='../php/log-out.php')
+    button wyloguj
