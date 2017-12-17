@@ -6,15 +6,16 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
+        td:first-child {
+            width: 11em;
+            vertical-align: top;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <table class="auto-style1">
+            <table>
                 <tr>
                     <td>Imię:</td>
                     <td>
