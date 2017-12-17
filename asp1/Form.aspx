@@ -67,7 +67,7 @@
                             ControlToValidate="ageTextBox" Display="Dynamic"
                             ErrorMessage="Wiek jest wymagany" ForeColor="Red">
                         </asp:RequiredFieldValidator>
-                        <asp:CompareValidator ID="ageCompareValidator" runat="server" ErrorMessage="Musisz mieć ukończone 18 lat" ControlToValidate="ageTextBox" ForeColor="Red" Operator="GreaterThanEqual" ValueToCompare="18"></asp:CompareValidator>
+                        <asp:CompareValidator ID="ageCompareValidator" runat="server" ErrorMessage="Musisz mieć ukończone 18 lat" ControlToValidate="ageTextBox" ForeColor="Red" Operator="GreaterThanEqual" ValueToCompare="18" Display="Dynamic"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -79,7 +79,7 @@
                             ControlToValidate="experienceTextBox" Display="Dynamic"
                             ErrorMessage="Doświadczenie jest wymagane" ForeColor="Red">
                         </asp:RequiredFieldValidator>
-                        <asp:RangeValidator ID="experienceRangeValidator" runat="server" ErrorMessage="Twoje doświadczenie jest nieodpowiednie, szukamy osób, które grają w piłkę 2-5 lat" ControlToValidate="experienceTextBox" ForeColor="Red" MaximumValue="5" MinimumValue="2"></asp:RangeValidator>
+                        <asp:RangeValidator ID="experienceRangeValidator" runat="server" ErrorMessage="Twoje doświadczenie jest nieodpowiednie, szukamy osób, które grają w piłkę 2-5 lat" ControlToValidate="experienceTextBox" ForeColor="Red" MaximumValue="5" MinimumValue="2" Display="Dynamic"></asp:RangeValidator>
                     </td>
                 </tr>
             </table>
