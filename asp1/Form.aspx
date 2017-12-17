@@ -84,6 +84,12 @@
                     </td>
                 </tr>
             </table>
+            <p>
+                <asp:Button ID="submitButton" runat="server" Text="Wyślij" />
+            </p>
+            <p>
+                <asp:Label ID="outputLabel" runat="server" Visible="False"></asp:Label>
+            </p>
 
         </div>
     </form>
