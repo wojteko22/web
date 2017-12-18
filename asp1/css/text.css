@@ -1,0 +1,69 @@
+.em {
+  font-size: 1.4em;
+  font-weight: bold;
+  font-style: oblique; }
+
+.px {
+  font-size: 14px;
+  font-variant: all-petite-caps;
+  line-height: 25px;
+  font-weight: 600; }
+
+.pt {
+  font-size: 12pt;
+  font-family: Tahoma, monospace; }
+
+.percent {
+  font-size: 140%;
+  line-height: 90%; }
+
+.floatedImage {
+  padding: .2em;
+  margin-left: .5em;
+  margin-bottom: .5em;
+  float: right;
+  width: 30%;
+  border: 6px ridge; }
+
+.fixedImage {
+  z-index: 2;
+  position: fixed;
+  right: 8px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px; }
+
+:target {
+  border: 2px solid bisque;
+  background-color: #ffebe5; }
+
+@media print {
+  p, .em, .px, .pt, .percent {
+    font-size: 12pt;
+    color: black;
+    font-family: "times new roman", times, serif; }
+  nav, img, footer {
+    display: none; } }
+
+@page :first {
+  margin: 3cm; }
+
+@page {
+  margin: 1cm; }
+
+.radialGradientBackground {
+  background: radial-gradient(circle, white, rgba(39, 82, 116, 0.57)); }
+
+.columns {
+  -webkit-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 2em;
+  column-gap: 2em;
+  -webkit-column-rule: thick dotted grey;
+  column-rule: thick dotted grey; }
+
+.diagonal-gradient {
+  background: linear-gradient(15deg, #44f, #f44); }
+
+.radialGradient2 {
+  background: radial-gradient(farthest-side at 60% 60%, white, white, yellow, pink 95%, #f44); }

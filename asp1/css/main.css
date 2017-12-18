@@ -1,0 +1,73 @@
+.error {
+  color: #d00e00; }
+
+nav {
+  text-align: center;
+  width: 15em; }
+  .nav-main nav {
+    background-color: royalblue;
+    color: white; }
+  nav ul {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .nav-main nav ul li {
+      border: 2px solid royalblue;
+      border-top: initial;
+      background-color: white; }
+    nav ul li:hover {
+      background-color: powderblue; }
+    nav ul li:active {
+      background-color: #8cb3b8; }
+    nav ul li a {
+      text-decoration: none;
+      display: block;
+      color: black; }
+      .nav-main nav ul li a:visited {
+        color: grey; }
+  nav:hover > ul {
+    display: block; }
+
+footer {
+  background-color: #8cb3b8;
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center; }
+
+.button {
+  background-color: #4CAF50;
+  border: 2px solid transparent;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s; }
+  .button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; }
+
+.userPanel {
+  border: solid;
+  padding: 10px;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.34); }
+  .userPanel button {
+    background: rgba(114, 139, 0, 0.89);
+    border-radius: 20px; }
+  .userPanel .userName {
+    color: #3e061e;
+    font-size: medium;
+    font-style: oblique;
+    font-family: 'Pacifico', cursive; }
+  .userPanel .sid {
+    color: #275274;
+    font-style: italic;
+    font-family: "Comic Sans MS",serif; }

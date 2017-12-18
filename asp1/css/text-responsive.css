@@ -1,0 +1,27 @@
+.columns {
+  -webkit-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 2em;
+  column-gap: 2em;
+  -webkit-column-rule: thick dotted grey;
+  column-rule: thick dotted grey; }
+
+@media (max-width: 900px) {
+  .columns {
+    -webkit-column-count: 2;
+    column-count: 2; } }
+
+@media (max-width: 500px) {
+  .columns {
+    -webkit-column-count: 1;
+    column-count: 1; } }
+
+.inputs {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+  .inputs div {
+    display: inline-block;
+    margin-right: 2em; }
+    .inputs div select {
+      display: block;
+      margin-top: 0.5em; }

@@ -1,0 +1,24 @@
+#facts {
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(209, 14, 0, 0.84)));
+  background: linear-gradient(to bottom, white, rgba(209, 14, 0, 0.84)); }
+
+.container {
+  background-color: pink; }
+
+.shadow {
+  text-shadow: 2px 2px 8px #7d6488; }
+
+.roundCorners {
+  border-radius: 25px 50% 30em 15ex;
+  background: rgba(92, 94, 0, 0.48);
+  -webkit-box-shadow: 10px 10px 5px #886974;
+  box-shadow: 10px 10px 5px #886974;
+  width: 75%; }
+
+.background {
+  height: 20em;
+  width: 100%;
+  background: url("../resources/ball.png") 2em 2em/6em 6em; }
+
+.font {
+  font-family: 'Pacifico', cursive; }

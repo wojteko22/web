@@ -4,15 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        td:first-child {
-            width: 11em;
-            vertical-align: top;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/main.css" /> 
+    <link rel="stylesheet" href="../css/form.css" /> 
+    <title>Formularz zgłoszeniowy</title>
 </head>
 <body>
+    <div class="nav-main">
+        <nav>
+            Menu
+            <ul>
+                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="text-responsive.html">Trener</a></li>
+                <li><a href="Form.aspx">Formularz</a></li>
+            </ul>
+        </nav>
+    </div>
     <form id="form1" runat="server">
         <div>
             <table>
