@@ -68,7 +68,7 @@
                 <tr>
                     <td>Wiek w latach:</td>
                     <td>
-                        <asp:TextBox ID="ageTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="ageTextBox" runat="server" TextMode="Number"></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="ageRequiredFieldValidator" runat="server"
                             ControlToValidate="ageTextBox" Display="Dynamic"
@@ -80,7 +80,7 @@
                 <tr>
                     <td>Doświadczenie w latach:</td>
                     <td>
-                        <asp:TextBox ID="experienceTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="experienceTextBox" runat="server" TextMode="Number"></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="experienceRequiredFieldValidator" runat="server"
                             ControlToValidate="experienceTextBox" Display="Dynamic"
