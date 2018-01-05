@@ -1,0 +1,3 @@
+Lista produktów:
+    Możliwości rozbudowy:
+    • dodawanie kilku egzemplarzy danego produktu do koszyka
