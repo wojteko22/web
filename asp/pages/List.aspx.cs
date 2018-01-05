@@ -11,19 +11,24 @@ public partial class pages_List : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         categoryList.AutoPostBack = true;
-        label.Text = "Liczba produktów w koszyku: " + Session.Count;
 
         if (!IsPostBack)
-            bindAllData();
+            init();
         else
             displayOnlySelected();
     }
 
-    private void bindAllData()
+    private void init()
     {
+        showSessionState();
         bind(tshirtsTable(), tshirtsCheckBoxList);
         bind(ballsTable(), ballsCheckBoxList);
         bind(mugsTable(), mugsCheckBoxList);
+    }
+
+    private void showSessionState()
+    {
+        label.Text = "Liczba produktów w koszyku: " + Session.Count;
     }
 
     private void bind(Hashtable table, CheckBoxList list)
@@ -88,6 +93,7 @@ public partial class pages_List : System.Web.UI.Page
     protected void submitButton_Click(object sender, EventArgs e)
     {
         saveSelectedItems();
+        showSessionState();
     }
 
     private void saveSelectedItems()

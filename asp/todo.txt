@@ -1,6 +1,4 @@
 Lista produktów:
-    bug: trzeba kilka razy klikać koszyk
-
     Możliwości rozbudowy:
     • dodawanie kilku egzemplarzy danego produktu do koszyka
 
