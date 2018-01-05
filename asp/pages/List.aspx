@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" href="../css/main.css" /> 
+    <link rel="stylesheet" href="../css/main.css" />
     <title>Lista produktów do zakupu</title>
 </head>
 <body>
@@ -20,6 +20,23 @@
     </div>
     <form id="form2" runat="server">
         <div>
+            <asp:RadioButtonList ID="categoryList" runat="server">
+                <asp:ListItem Value="tshirts">koszulki</asp:ListItem>
+                <asp:ListItem Value="balls">piłki</asp:ListItem>
+                <asp:ListItem Value="mugs">kubki</asp:ListItem>
+            </asp:RadioButtonList>
+
+            <div id="list">
+                <asp:CheckBoxList ID="tshirtsCheckBoxList" runat="server" Visible="false">
+                </asp:CheckBoxList>
+
+                <asp:CheckBoxList ID="ballsCheckBoxList" runat="server" Visible="false">
+                </asp:CheckBoxList>
+
+                <asp:CheckBoxList ID="mugsCheckBoxList" runat="server" Visible="false">
+                </asp:CheckBoxList>
+            </div>
+            <asp:Label ID="label" runat="server"></asp:Label>
         </div>
     </form>
 </body>
