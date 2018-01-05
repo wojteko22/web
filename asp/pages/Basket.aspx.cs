@@ -52,6 +52,7 @@ public partial class pages_Basket : System.Web.UI.Page
     {
         float sum = price + value(deliveryList.ID) + value(paymentList.ID);
         valueInfo.Text = "Łączna wartość zamówienia wynosi " + sum + " zł";
+        submitButton.PostBackUrl = "~/pages/Confirmation.aspx?charge=" + sum;
     }
 
     private float value(string radioButtonListId)

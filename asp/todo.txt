@@ -6,8 +6,6 @@ Koszyk:
     Możliwości rozbudowy:
     • usuwanie pojedynczych produktów z koszyka,
     • usuwanie wszystkich produktów z koszyka,
-    • zmiana liczby produktów w koszyku (o ile istnieje możliwość dodania kilku
-    produktów jednego typu).
+    • zmiana liczby produktów w koszyku (o ile istnieje możliwość dodania kilku produktów jednego typu).
 
-Potwierdzenie
 Całość
