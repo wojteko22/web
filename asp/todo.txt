@@ -8,4 +8,5 @@ Koszyk:
     • usuwanie wszystkich produktów z koszyka,
     • zmiana liczby produktów w koszyku (o ile istnieje możliwość dodania kilku produktów jednego typu).
 
-Całość
+Całość:
+    zastosuj w kontrolkach style z zaimportowanego pliku
