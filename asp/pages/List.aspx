@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="nav-main">
-        <nav>Menu
+        <nav>
+            Menu
             <ul>
                 <li><a href="index.html">Strona główna</a></li>
                 <li><a href="text-responsive.html">Trener</a></li>
@@ -26,16 +27,14 @@
                 <asp:ListItem Value="mugs">kubki</asp:ListItem>
             </asp:RadioButtonList>
 
-            <div id="list">
-                <asp:CheckBoxList ID="tshirtsCheckBoxList" runat="server" Visible="false">
-                </asp:CheckBoxList>
+            <asp:CheckBoxList ID="tshirtsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
+            <asp:CheckBoxList ID="ballsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
+            <asp:CheckBoxList ID="mugsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
 
-                <asp:CheckBoxList ID="ballsCheckBoxList" runat="server" Visible="false">
-                </asp:CheckBoxList>
-
-                <asp:CheckBoxList ID="mugsCheckBoxList" runat="server" Visible="false">
-                </asp:CheckBoxList>
-            </div>
+            <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Dodaj do koszyka" Visible="false"/>
+            <br />
+            <asp:HyperLink ID="basketLink" runat="server" NavigateUrl="~/pages/Basket.aspx">Podsumowanie zamówienia</asp:HyperLink>
+            <br />
             <asp:Label ID="label" runat="server"></asp:Label>
         </div>
     </form>

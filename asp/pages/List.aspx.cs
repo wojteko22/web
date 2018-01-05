@@ -11,10 +11,12 @@ public partial class pages_List : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         categoryList.AutoPostBack = true;
-        bindAllData();
-        if (IsPostBack)
+        label.Text = "Liczba produktów w koszyku: " + Session.Count;
+
+        if (!IsPostBack)
+            bindAllData();
+        else
             displayOnlySelected();
-  
     }
 
     private void bindAllData()
@@ -26,7 +28,9 @@ public partial class pages_List : System.Web.UI.Page
 
     private void bind(Hashtable table, CheckBoxList list)
     {
-        list.DataSource = table.Keys;
+        list.DataSource = table;
+        list.DataValueField = "Value";
+        list.DataTextField = "Key";
         list.DataBind();
     }
 
@@ -61,6 +65,7 @@ public partial class pages_List : System.Web.UI.Page
     {
         hideAllCheckBoxLists();
         displaySelectedList();
+        submitButton.Visible = true;
     }
 
     private void hideAllCheckBoxLists()
@@ -71,8 +76,29 @@ public partial class pages_List : System.Web.UI.Page
 
     private void displaySelectedList()
     {
+        selectedList().Visible = true;
+    }
+
+    private CheckBoxList selectedList()
+    {
         string value = categoryList.SelectedValue;
-        CheckBoxList list = FindControl(value + "CheckBoxList") as CheckBoxList;
-        list.Visible = true;
+        return FindControl(value + "CheckBoxList") as CheckBoxList;
+    }
+
+    protected void submitButton_Click(object sender, EventArgs e)
+    {
+        saveSelectedItems();
+    }
+
+    private void saveSelectedItems()
+    {
+        foreach (ListItem item in selectedList().Items)
+            saveIfSelected(item);
+    }
+
+    private void saveIfSelected(ListItem item)
+    {
+        if (item.Selected)
+            Session[item.Text] = item.Value;
     }
 }
