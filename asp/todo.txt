@@ -1,3 +1,15 @@
 Lista produktów:
+    bug: trzeba kilka razy klikać koszyk
+
     Możliwości rozbudowy:
     • dodawanie kilku egzemplarzy danego produktu do koszyka
+
+Koszyk:
+    Możliwości rozbudowy:
+    • usuwanie pojedynczych produktów z koszyka,
+    • usuwanie wszystkich produktów z koszyka,
+    • zmiana liczby produktów w koszyku (o ile istnieje możliwość dodania kilku
+    produktów jednego typu).
+
+Potwierdzenie
+Całość
