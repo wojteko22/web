@@ -1,2 +1,0 @@
-Całość:
-    zastosuj w kontrolkach style z zaimportowanego pliku

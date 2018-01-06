@@ -21,17 +21,18 @@
     </div>
     <form id="form2" runat="server">
         <div>
+            <h3 class="aspLabel">Wybierz kategorię:</h3>
             <asp:RadioButtonList ID="categoryList" runat="server">
                 <asp:ListItem Value="tshirts">koszulki</asp:ListItem>
                 <asp:ListItem Value="balls">piłki</asp:ListItem>
                 <asp:ListItem Value="mugs">kubki</asp:ListItem>
             </asp:RadioButtonList>
 
-            <asp:CheckBoxList ID="tshirtsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
-            <asp:CheckBoxList ID="ballsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
-            <asp:CheckBoxList ID="mugsCheckBoxList" runat="server" Visible="false"></asp:CheckBoxList>
+            <asp:CheckBoxList ID="tshirtsCheckBoxList" runat="server" Visible="false" CssClass="aspSecondList"></asp:CheckBoxList>
+            <asp:CheckBoxList ID="ballsCheckBoxList" runat="server" Visible="false" CssClass="aspSecondList"></asp:CheckBoxList>
+            <asp:CheckBoxList ID="mugsCheckBoxList" runat="server" Visible="false" CssClass="aspSecondList"></asp:CheckBoxList>
 
-            <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Dodaj do koszyka" Visible="false"/>
+            <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Dodaj do koszyka" Visible="false" CssClass="aspButton"/>
             <br />
             <asp:HyperLink ID="basketLink" runat="server" NavigateUrl="~/pages/Basket.aspx">Podsumowanie zamówienia</asp:HyperLink>
             <br />
