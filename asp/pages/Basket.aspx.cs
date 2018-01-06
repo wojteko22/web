@@ -10,10 +10,10 @@ public partial class pages_Basket : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         setAutoPostBacks();
-        basket.Items.Clear();
         if (Session.Count == 0)
             hideBasket();
-        displayBasketRelatedStuff();
+        if (!IsPostBack)
+            displayBasketRelatedStuff();
     }
 
     private void setAutoPostBacks()
@@ -31,18 +31,19 @@ public partial class pages_Basket : System.Web.UI.Page
 
     private void displayBasketRelatedStuff()
     {
+        basket.Items.Clear();
         float price = 0;
         foreach (string key in Session)
         {
             Tuple<float, int> item = Session[key] as Tuple<float, int>;
             float itemPrice = item.Item1;
             int amount = item.Item2;
-            basket.Items.Add(key + ": " + itemPrice + " zł, sztuk: " + amount);
+            ListItem listItem = new ListItem(key + ": " + itemPrice + " zł, sztuk: " + amount, key);
+            basket.Items.Add(listItem);
             price += itemPrice * amount;
         }
         displayPrice(price);
         displayValue(price);
-        
     }
 
     private void displayPrice(float price)
@@ -62,5 +63,29 @@ public partial class pages_Basket : System.Web.UI.Page
         RadioButtonList list = FindControl(radioButtonListId) as RadioButtonList;
         string valueString = list.SelectedItem.Value;
         return float.Parse(valueString);
+    }
+
+    protected void addButton_Click(object sender, EventArgs e)
+    {
+        addButton.Enabled = false;
+        increaseAmount();
+        displayBasketRelatedStuff();
+    }
+
+    private void increaseAmount()
+    {
+        string key = basket.SelectedValue;
+        Tuple<float, int> tuple = Session[key] as Tuple<float, int>; ;
+        Session[key] = Tuple.Create(tuple.Item1, tuple.Item2 + 1);
+    }
+
+    protected void list_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        displayBasketRelatedStuff();
+    }
+
+    protected void basket_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        addButton.Enabled = true;
     }
 }
