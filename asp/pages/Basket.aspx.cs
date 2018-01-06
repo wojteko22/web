@@ -65,6 +65,24 @@ public partial class pages_Basket : System.Web.UI.Page
         disableButtons();
     }
 
+    protected void removeOneButton_Click(object sender, EventArgs e)
+    {
+        disableButtons();
+        decreaseAmount();
+        updateBasketRelatedStuff();
+    }
+
+    private void decreaseAmount()
+    {
+        string key = selectedBasketValue();
+        Tuple<float, int> tuple = Session[key] as Tuple<float, int>;
+        int amount = tuple.Item2;
+        if (amount == 1)
+            Session.Remove(key);
+        else
+            Session[key] = Tuple.Create(tuple.Item1, amount - 1);
+    }
+
     protected void addButton_Click(object sender, EventArgs e)
     {
         disableButtons();
@@ -75,7 +93,7 @@ public partial class pages_Basket : System.Web.UI.Page
     private void increaseAmount()
     {
         string key = selectedBasketValue();
-        Tuple<float, int> tuple = Session[key] as Tuple<float, int>; ;
+        Tuple<float, int> tuple = Session[key] as Tuple<float, int>;
         Session[key] = Tuple.Create(tuple.Item1, tuple.Item2 + 1);
     }
 
@@ -89,6 +107,7 @@ public partial class pages_Basket : System.Web.UI.Page
 
     private void disableButtons()
     {
+        removeOneButton.Enabled = false;
         addButton.Enabled = false;
         removeButton.Enabled = false;
     }
@@ -105,6 +124,7 @@ public partial class pages_Basket : System.Web.UI.Page
 
     private void enableButtons()
     {
+        removeOneButton.Enabled = true;
         addButton.Enabled = true;
         removeButton.Enabled = true;
     }

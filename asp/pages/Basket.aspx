@@ -30,6 +30,7 @@
             <asp:Label ID="basketInfo" runat="server" Text="Zawartość koszyka:" CssClass="label"></asp:Label>
             <br />
             <asp:ListBox ID="basket" runat="server" OnSelectedIndexChanged="basket_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
+            <asp:Button ID="removeOneButton" runat="server" Text="-1" OnClick="removeOneButton_Click" Enabled="false"/>
             <asp:Button ID="addButton" runat="server" Text="+1" OnClick="addButton_Click" Enabled="false"/>
             <asp:Button ID="removeButton" runat="server" Text="Usuń wybrane" OnClick="removeButton_Click" Enabled="false"/>
             <asp:Button ID="clearButton" runat="server" Text="Opróżnij koszyk" OnClick="clearButton_Click"/>
