@@ -9,17 +9,8 @@ public partial class pages_Basket : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        setAutoPostBacks();
-        if (Session.Count == 0)
-            hideBasket();
         if (!IsPostBack)
             updateBasketRelatedStuff();
-    }
-
-    private void setAutoPostBacks()
-    {
-        deliveryList.AutoPostBack = true;
-        paymentList.AutoPostBack = true;
     }
 
     private void hideBasket()
@@ -32,6 +23,8 @@ public partial class pages_Basket : System.Web.UI.Page
 
     private void updateBasketRelatedStuff()
     {
+        if (Session.Count == 0)
+            hideBasket();
         basket.Items.Clear();
         float price = 0;
         foreach (string key in Session)
@@ -66,28 +59,54 @@ public partial class pages_Basket : System.Web.UI.Page
         return float.Parse(valueString);
     }
 
+    protected void list_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        updateBasketRelatedStuff();
+        disableButtons();
+    }
+
     protected void addButton_Click(object sender, EventArgs e)
     {
-        addButton.Enabled = false;
+        disableButtons();
         increaseAmount();
         updateBasketRelatedStuff();
     }
 
     private void increaseAmount()
     {
-        string key = basket.SelectedValue;
+        string key = selectedBasketValue();
         Tuple<float, int> tuple = Session[key] as Tuple<float, int>; ;
         Session[key] = Tuple.Create(tuple.Item1, tuple.Item2 + 1);
     }
 
-    protected void list_SelectedIndexChanged(object sender, EventArgs e)
+    protected void removeButton_Click(object sender, EventArgs e)
     {
+        disableButtons();
+        string key = selectedBasketValue();
+        Session.Remove(key);
         updateBasketRelatedStuff();
+    }
+
+    private void disableButtons()
+    {
+        addButton.Enabled = false;
+        removeButton.Enabled = false;
+    }
+
+    private string selectedBasketValue()
+    {
+        return basket.SelectedValue;
     }
 
     protected void basket_SelectedIndexChanged(object sender, EventArgs e)
     {
+        enableButtons();
+    }
+
+    private void enableButtons()
+    {
         addButton.Enabled = true;
+        removeButton.Enabled = true;
     }
 
     protected void clearButton_Click(object sender, EventArgs e)
