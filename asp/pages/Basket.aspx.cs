@@ -13,7 +13,7 @@ public partial class pages_Basket : System.Web.UI.Page
         if (Session.Count == 0)
             hideBasket();
         if (!IsPostBack)
-            displayBasketRelatedStuff();
+            updateBasketRelatedStuff();
     }
 
     private void setAutoPostBacks()
@@ -27,9 +27,10 @@ public partial class pages_Basket : System.Web.UI.Page
         basketInfo.Text = "Koszyk jest pusty";
         basket.Visible = false;
         submitButton.Enabled = false;
+        clearButton.Enabled = false;
     }
 
-    private void displayBasketRelatedStuff()
+    private void updateBasketRelatedStuff()
     {
         basket.Items.Clear();
         float price = 0;
@@ -69,7 +70,7 @@ public partial class pages_Basket : System.Web.UI.Page
     {
         addButton.Enabled = false;
         increaseAmount();
-        displayBasketRelatedStuff();
+        updateBasketRelatedStuff();
     }
 
     private void increaseAmount()
@@ -81,11 +82,18 @@ public partial class pages_Basket : System.Web.UI.Page
 
     protected void list_SelectedIndexChanged(object sender, EventArgs e)
     {
-        displayBasketRelatedStuff();
+        updateBasketRelatedStuff();
     }
 
     protected void basket_SelectedIndexChanged(object sender, EventArgs e)
     {
         addButton.Enabled = true;
+    }
+
+    protected void clearButton_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        hideBasket();
+        updateBasketRelatedStuff();
     }
 }

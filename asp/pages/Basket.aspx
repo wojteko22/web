@@ -31,6 +31,7 @@
             <br />
             <asp:ListBox ID="basket" runat="server" OnSelectedIndexChanged="basket_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
             <asp:Button ID="addButton" runat="server" Text="+1" OnClick="addButton_Click" Enabled="false"/>
+            <asp:Button ID="clearButton" runat="server" Text="Opróżnij koszyk" OnClick="clearButton_Click"/>
             <asp:Label ID="priceInfo" runat="server" CssClass="label"></asp:Label>
             <asp:Label ID="valueInfo" runat="server" CssClass="label"></asp:Label>
             <asp:HyperLink ID="listLink" runat="server" NavigateUrl="~/pages/List.aspx">Wróć do listy produktów</asp:HyperLink>
