@@ -28,7 +28,13 @@ public partial class pages_List : System.Web.UI.Page
 
     private void showSessionState()
     {
-        label.Text = "Liczba produktów w koszyku: " + Session.Count;
+        int sum = 0;
+        foreach (string key in Session)
+        {
+            Tuple<float, int> tuple = Session[key] as Tuple<float, int>;
+            sum += tuple.Item2;
+        }
+        label.Text = "Liczba produktów w koszyku: " + sum;
     }
 
     private void bind(Hashtable table, CheckBoxList list)
@@ -105,6 +111,20 @@ public partial class pages_List : System.Web.UI.Page
     private void saveIfSelected(ListItem item)
     {
         if (item.Selected)
-            Session[item.Text] = item.Value;
+            addToBasket(item);
+    }
+
+    private void addToBasket(ListItem item)
+    {
+        string key = item.Text;
+        float price = float.Parse(item.Value);
+        object value = Session[key];
+        if (value == null)
+            Session[key] = Tuple.Create(price, 1);
+        else
+        {
+            Tuple<float, int> tuple = value as Tuple<float, int>;
+            Session[key] = Tuple.Create(price, tuple.Item2 + 1);
+        }
     }
 }

@@ -34,9 +34,11 @@ public partial class pages_Basket : System.Web.UI.Page
         float price = 0;
         foreach (string key in Session)
         {
-            string itemPriceString = Session[key].ToString();
-            basket.Items.Add(key + ": " + itemPriceString + " zł");
-            price += float.Parse(itemPriceString);
+            Tuple<float, int> item = Session[key] as Tuple<float, int>;
+            float itemPrice = item.Item1;
+            int amount = item.Item2;
+            basket.Items.Add(key + ": " + itemPrice + " zł, sztuk: " + amount);
+            price += itemPrice * amount;
         }
         displayPrice(price);
         displayValue(price);
