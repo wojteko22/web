@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Guestbook")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Products")]
 public partial class ProductsDataContext : System.Data.Linq.DataContext
 {
 	
@@ -29,13 +29,13 @@ public partial class ProductsDataContext : System.Data.Linq.DataContext
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
-  partial void InsertMessage(Message instance);
-  partial void UpdateMessage(Message instance);
-  partial void DeleteMessage(Message instance);
+  partial void InsertBall(Ball instance);
+  partial void UpdateBall(Ball instance);
+  partial void DeleteBall(Ball instance);
   #endregion
 	
 	public ProductsDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["GuestbookConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ProductsConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -64,93 +64,69 @@ public partial class ProductsDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<Message> Messages
+	public System.Data.Linq.Table<Ball> Balls
 	{
 		get
 		{
-			return this.GetTable<Message>();
+			return this.GetTable<Ball>();
 		}
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Messages")]
-public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Balls")]
+public partial class Ball : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
-	private int _MessageID;
-	
-	private string _Date;
+	private int _Id;
 	
 	private string _Name;
 	
-	private string _Email;
+	private System.Nullable<decimal> _Price;
 	
-	private string _Message1;
+	private System.Nullable<System.DateTime> _AddingDate;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMessageIDChanging(int value);
-    partial void OnMessageIDChanged();
-    partial void OnDateChanging(string value);
-    partial void OnDateChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnMessage1Changing(string value);
-    partial void OnMessage1Changed();
+    partial void OnPriceChanging(System.Nullable<decimal> value);
+    partial void OnPriceChanged();
+    partial void OnAddingDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnAddingDateChanged();
     #endregion
 	
-	public Message()
+	public Ball()
 	{
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int MessageID
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+	public int Id
 	{
 		get
 		{
-			return this._MessageID;
+			return this._Id;
 		}
 		set
 		{
-			if ((this._MessageID != value))
+			if ((this._Id != value))
 			{
-				this.OnMessageIDChanging(value);
+				this.OnIdChanging(value);
 				this.SendPropertyChanging();
-				this._MessageID = value;
-				this.SendPropertyChanged("MessageID");
-				this.OnMessageIDChanged();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string Date
-	{
-		get
-		{
-			return this._Date;
-		}
-		set
-		{
-			if ((this._Date != value))
-			{
-				this.OnDateChanging(value);
-				this.SendPropertyChanging();
-				this._Date = value;
-				this.SendPropertyChanged("Date");
-				this.OnDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(10) NOT NULL", CanBeNull=false)]
 	public string Name
 	{
 		get
@@ -170,42 +146,42 @@ public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string Email
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Money")]
+	public System.Nullable<decimal> Price
 	{
 		get
 		{
-			return this._Email;
+			return this._Price;
 		}
 		set
 		{
-			if ((this._Email != value))
+			if ((this._Price != value))
 			{
-				this.OnEmailChanging(value);
+				this.OnPriceChanging(value);
 				this.SendPropertyChanging();
-				this._Email = value;
-				this.SendPropertyChanged("Email");
-				this.OnEmailChanged();
+				this._Price = value;
+				this.SendPropertyChanged("Price");
+				this.OnPriceChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Message", Storage="_Message1", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-	public string Message1
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddingDate", DbType="Date")]
+	public System.Nullable<System.DateTime> AddingDate
 	{
 		get
 		{
-			return this._Message1;
+			return this._AddingDate;
 		}
 		set
 		{
-			if ((this._Message1 != value))
+			if ((this._AddingDate != value))
 			{
-				this.OnMessage1Changing(value);
+				this.OnAddingDateChanging(value);
 				this.SendPropertyChanging();
-				this._Message1 = value;
-				this.SendPropertyChanged("Message1");
-				this.OnMessage1Changed();
+				this._AddingDate = value;
+				this.SendPropertyChanged("AddingDate");
+				this.OnAddingDateChanged();
 			}
 		}
 	}

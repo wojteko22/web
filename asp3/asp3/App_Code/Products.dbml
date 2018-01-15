@@ -1,12 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Guestbook" Class="ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Guestbook.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GuestbookConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Messages" Member="Messages">
-    <Type Name="Message">
-      <Column Name="MessageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Date" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Message" Member="Message1" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Products" Class="ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Products.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProductsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Balls" Member="Balls">
+    <Type Name="Ball">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AddingDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

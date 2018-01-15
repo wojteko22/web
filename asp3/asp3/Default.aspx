@@ -3,16 +3,24 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <asp:GridView ID="GridView1" runat="server" DataSourceID="LinqDataSource1" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="MessageID" PageSize="2">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Id" DataSourceID="LinqDataSource1" ForeColor="Black" GridLines="None">
+            <AlternatingRowStyle BackColor="PaleGoldenrod" />
             <Columns>
-                <asp:BoundField DataField="MessageID" HeaderText="MessageID" InsertVisible="False" ReadOnly="True" SortExpression="MessageID" />
-                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                <asp:BoundField DataField="Message1" HeaderText="Message1" SortExpression="Message1" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="AddingDate" HeaderText="AddingDate" SortExpression="AddingDate" />
             </Columns>
+            <FooterStyle BackColor="Tan" />
+            <HeaderStyle BackColor="Tan" Font-Bold="True" />
+            <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+            <SortedAscendingCellStyle BackColor="#FAFAE7" />
+            <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+            <SortedDescendingCellStyle BackColor="#E1DB9C" />
+            <SortedDescendingHeaderStyle BackColor="#C2A47B" />
         </asp:GridView>
-        <asp:LinqDataSource ID="LinqDataSource1" runat="server" EntityTypeName="" ContextTypeName="ProductsDataContext" TableName="Messages">
+        <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="ProductsDataContext" EntityTypeName="" TableName="Balls">
         </asp:LinqDataSource>
     </div>
 </asp:Content>
