@@ -24,8 +24,34 @@
         </asp:LinqDataSource>
     </div>
 
-    <asp:TextBox ID="Name" runat="server"></asp:TextBox>
-    <asp:TextBox ID="Price" runat="server"></asp:TextBox>
+    <div>
+        Insert form:
+        <div>
+             Name:
+            <asp:TextBox ID="Name" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="nameRequired"
+                controlToValidate="Name" Display="Dynamic"
+                ErrorMessage="Product name is required" ForeColor="Red"
+                runat="server"
+                >
+            </asp:RequiredFieldValidator>
+        </div>
+        <div>
+            Price: 
+            <asp:TextBox ID="Price" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="priceRequired"
+                ControlToValidate="Price" Display="Dynamic"
+                ErrorMessage="Product price is required" ForeColor="Red"
+                runat="server">
+            </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator
+                ID="priceRegularExpressionValidator"
+                runat="server" ControlToValidate="Price" Display="Dynamic"
+                ErrorMessage="Wrong price format" ForeColor="Red"
+                ValidationExpression="^\d+(\.\d+)?$">
+            </asp:RegularExpressionValidator>
+        </div>
+    </div>
     <asp:Button ID="Insert" runat="server" Text="Insert" onclick="Insert_Click"/>
     <asp:LinqDataSource ID="balls" runat="server" ContextTypeName="ProductsDataContext" EnableInsert="True" EntityTypeName="" TableName="Balls"></asp:LinqDataSource>
 

@@ -15,7 +15,16 @@ public partial class SecuredPages_Editing : System.Web.UI.Page
 
     protected void Insert_Click(object sender, EventArgs e)
     {
-        ListDictionary insertParameters = new ListDictionary();     
+        Validate();
+        if (IsValid)
+        {
+            addToDatabase();
+        }
+    }
+
+    private void addToDatabase()
+    {
+        ListDictionary insertParameters = new ListDictionary();
         insertParameters.Add("AddingDate", DateTime.Now.ToShortDateString());
         insertParameters.Add("Name", Name.Text);
         insertParameters.Add("Price", Price.Text);
