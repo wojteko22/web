@@ -46,7 +46,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo.png" CssClass="logo" />
+                    <a class="navbar-brand" runat="server" href="~/">Hajto team</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -78,7 +79,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Wojciech Okoński, Dawid Rusiecki</p>
             </footer>
         </div>
     </form>
